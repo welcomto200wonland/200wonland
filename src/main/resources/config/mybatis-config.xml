@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <properties resource="config/connection-info.properties"/>
+
+    <!-- 마이바티스에서 데이터베이스에 null 넣고싶을때 설정  -->
+    <settings>
+        <setting name="jdbcTypeForNull" value="NULL"/>
+    </settings>
+
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+<!--    패키지는 그 폴더 안에 있는 mapper들을 자동으로 읽어서 연결 해주겠다는 것.
+그래서 폴더 경로까지만 작성하면 됨.    -->
+        <package name="com.ohgiraffers.lbkland.mapper"/>
+    </mappers>
+</configuration>
