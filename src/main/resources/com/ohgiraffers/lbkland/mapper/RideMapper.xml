@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ohgiraffers.lbkland.mapper.RideMapper">
+    <resultMap id="rideResultMap" type="com.ohgiraffers.lbkland.dto.RideDTO">
+        <id property="rideId" column="ride_code"/>
+        <result property="rideName" column="ride_name"/>
+        <result property="staffId" column="staff_id"/>
+    </resultMap>
+
+    <select id="selectAllRide" resultMap="rideResultMap">
+        select
+        ride_code,
+        ride_name,
+        staff_id
+        from ride
+        order by ride_code
+    </select>
+
+
+    </mapper>
