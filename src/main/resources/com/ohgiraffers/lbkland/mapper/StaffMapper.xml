@@ -25,6 +25,66 @@
         from staff
     </select>
 
+    <select id="selectStaffById" parameterType="String" resultMap="staffResultMap">
+        select
+        staff_id,
+        staff_phone,
+        staff_rank,
+        ride_code,
+        log_count,
+        staff_name
+        from staff
+        where staff_id = #{ staffId }
+    </select>
 
+    <select id="selectRideByCode" parameterType="String" resultMap="staffResultMap">
+        select
+        staff_id,
+        staff_phone,
+        staff_rank,
+        ride_code,
+        log_count,
+        staff_name
+        from staff
+        where ride_code = #{ rideCode }
+    </select>
+
+
+    <insert id="registStaff" parameterType="com.ohgiraffers.lbkland.dto.StaffDTO">
+        insert into staff (
+        staff_id,
+        staff_phone,
+        staff_rank,
+        ride_code,
+        staff_name
+        ) values (
+        #{ staffId },
+        #{ staffPhone },
+        #{ staffRank },
+        #{ rideCode },
+        #{ staffName }
+        )
+    </insert>
+
+
+    <update id="modifyStaff" parameterType="com.ohgiraffers.lbkland.dto.StaffDTO">
+        update staff
+        set
+        staff_phone = #{ staffPhone },
+        staff_rank = #{ staffRank },
+        ride_code = #{ rideCode },
+        log_count = #{ logCount },
+        staff_name = #{ staffName }
+        where
+        staff_id = #{ staffId }
+    </update>
+
+
+    <delete id="deleteStaff" parameterType="String">
+        delete
+        from staff
+        where
+        staff_id = #{ staffId }
+    </delete>
 
 </mapper>

@@ -13,6 +13,10 @@ public class PrintResult {
         }
     }
 
+    public void printMenu(StaffDTO staff) {
+        System.out.println(staff);
+    }
+
     public void printSuccessMessage(String successCode) {
 
 
