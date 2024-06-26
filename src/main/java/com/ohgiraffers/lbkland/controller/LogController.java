@@ -112,8 +112,5 @@ public class LogController {
             printResult.printErrorMessage("delete");
         }
 
-
-
-
     }
 }

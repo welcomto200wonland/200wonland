@@ -7,11 +7,6 @@ import java.util.Map;
 import java.util.Scanner;
 
 import com.ohgiraffers.lbkland.controller.RideController;
-import com.ohgiraffers.lbkland.service.RideService;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
 
 public class Application {
 
@@ -26,6 +21,7 @@ public class Application {
      * */
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
         do {
@@ -39,7 +35,7 @@ public class Application {
 
             switch (no) {
                 case 1:break;
-                case 2:break;
+                case 2:selectRide(); break;
                 case 3: selectLog(); break;
                 case 0: return;
                 default:
@@ -166,36 +162,10 @@ public class Application {
 
         return parameter;
     }
-}
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        RideController rideController = new RideController();
-
-        do {
-            System.out.println("============IBK랜드 점검 관리 시스템========");
-            System.out.println("1. 직원 관리");
-            System.out.println("2. 놀이기구 관리");
-            System.out.println("3. 점검일지 관리");
-            System.out.println("0. 나가기");
-            System.out.println("관리 번호를 입력해주세요: ");
-            int no = sc.nextInt();
-
-            switch (no) {
-                case 1:break;
-                case 2: selectRide();break;
-                case 3:break;
-                default:
-                    System.out.println(" 잘못된 번호를 입력하셨습니다. ");
-                    break;
-            }
-
-        }  while (true) ;
-
-    }
 
     public static void selectRide(){
         Scanner sc = new Scanner(System.in);
-       RideController rideController = new RideController();
+        RideController rideController = new RideController();
         do {
             System.out.println("========== 놀이기구 관리 메뉴 ==========");
             System.out.println("1. 놀이기구 전체 조회");
@@ -203,6 +173,7 @@ public class Application {
             System.out.println("3. 놀이기구 추가하기");
             System.out.println("4. 놀이기구 수정하기");
             System.out.println("5. 놀이기구 삭제하기");
+            System.out.println("0. 이전 메뉴로 돌아가기");
             System.out.print("메뉴 번호를 입력하세요 : ");
             int no = sc.nextInt();
 
@@ -212,6 +183,7 @@ public class Application {
                 case 3: rideController.registRide(inputRide()); break;
                 case 4: rideController.modifyRide(inputModifyRide()); break;
                 case 5: rideController.deleteRide(inputRideCode()); break;
+                case 0: return;
             }
         } while (true);
     }
@@ -243,7 +215,6 @@ public class Application {
 
     }
 
-
     private static Map<String,String> inputModifyRide() {
         Scanner sc = new Scanner(System.in);
 
@@ -262,5 +233,6 @@ public class Application {
 
     }
 }
+
 
 
