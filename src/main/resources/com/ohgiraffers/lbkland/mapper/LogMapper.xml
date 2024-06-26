@@ -18,4 +18,48 @@
         order by log_id
     </select>
 
+    <select id="selectLogByCode" parameterType="String" resultMap="logResultMap">
+        select * from log
+        where log_id = #{ code }
+    </select>
+
+    <select id="selectLogByStaffId" parameterType="String" resultMap="logResultMap">
+        select * from log
+        where staff_id = #{ staId }
+    </select>
+
+    <insert id="insertLog" parameterType="com.ohgiraffers.lbkland.dto.LogDTO">
+        insert into log(
+        log_id,
+        log_contents,
+        ride_code,
+        log_title,
+        log_date,
+        staff_id
+        ) values (
+        #{ logId },
+        #{ logContents },
+        #{ rideCode },
+        #{ logTitle },
+        #{ logDate },
+        #{ staffId }
+        )
+    </insert>
+
+    <update id="modifyLog" parameterType="com.ohgiraffers.lbkland.dto.LogDTO">
+        update log
+        set
+        log_contents = #{ logContents },
+        ride_code = #{ rideCode },
+        log_title = #{ logTitle }
+        where
+        log_id = #{ logId }
+    </update>
+
+    <delete id="deleteLog" parameterType="com.ohgiraffers.lbkland.dto.LogDTO">
+        delete
+        from log
+        where log_id = #{ logId }
+    </delete>
+
 </mapper>

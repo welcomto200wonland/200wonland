@@ -1,5 +1,9 @@
 package com.ohgiraffers.lbkland.view;
 
+import com.ohgiraffers.lbkland.dto.LogDTO;
+
+import java.util.List;
+
 public class PrintResult {
 
     public void printSuccessMessage(String successCode) {
@@ -27,4 +31,16 @@ public class PrintResult {
         System.out.println(errorMessage);
     }
 
+    public void printLogList(List<LogDTO> logList) {
+
+        for (LogDTO logDTO : logList) {
+            System.out.println(logDTO);
+        }
+
+
+    }
+
+    public void printLog(LogDTO log) {
+        System.out.println(log);
+    }
 }
