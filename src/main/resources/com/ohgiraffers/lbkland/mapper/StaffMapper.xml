@@ -14,10 +14,16 @@
         <result property="staffName" column="staff_name"/>
     </resultMap>
 
-    <select id="selectAllStaff" resultMap=""
-
-
-
+    <select id="selectAllStaff" resultMap="staffResultMap">
+        select
+        staff_id,
+        staff_phone,
+        staff_rank,
+        ride_code,
+        log_count,
+        staff_name
+        from staff
+    </select>
 
 
 
