@@ -8,4 +8,11 @@ public interface RideMapper {
     List<RideDTO> selectAllRide();
 
 
+    RideDTO selectRideByCode(String rideId);
+
+    int registRide(RideDTO ride);
+
+    int modifyRide(RideDTO ride);
+
+    int deleteRide(String rideId);
 }

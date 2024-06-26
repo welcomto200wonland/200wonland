@@ -32,5 +32,67 @@ public class RideController {
 
 
     public void selectRideByCode(Map<String, String> parameter) {
+
+        String rideId = parameter.get("rideId");
+
+        RideDTO ride = rideService.selectRideByCode(rideId);
+
+        if(ride != null){
+            printResult.printRide(ride);
+        } else {
+            printResult.printErrorMessage("selectOne");
+        }
+
+    }
+
+    public void registRide(Map<String, String> parameter) {
+
+        String rideId = parameter.get("rideId");
+        String rideName = parameter.get("rideName");
+        String staffId = parameter.get("staffId");
+
+        RideDTO ride = new RideDTO();
+        ride.setRideId(rideId);
+        ride.setRideName(rideName);
+        ride.setStaffId(staffId);
+
+        if(rideService.registRide(ride)){
+            printResult.printSuccessMessage("insert");
+        } else {
+            printResult.printErrorMessage("insert");
+        }
+
+
+    }
+
+    public void modifyRide(Map<String, String> parameter) {
+
+        String rideId = parameter.get("rideId");
+        String rideName = parameter.get("rideName");
+        String staffId = parameter.get("staffId");
+
+        RideDTO ride = new RideDTO();
+        ride.setRideId(rideId);
+        ride.setRideName(rideName);
+        ride.setStaffId(staffId);
+
+        if(rideService.modifyRide(ride)){
+            printResult.printSuccessMessage("update");
+        } else {
+            printResult.printErrorMessage("update");
+        }
+
+
+
+    }
+
+    public void deleteRide(Map<String, String> parameter) {
+        String rideId = parameter.get("rideId");
+
+        if(rideService.deleteRide(rideId)){
+            printResult.printSuccessMessage("delete");
+        } else {
+            printResult.printErrorMessage("delete");
+        }
     }
 }

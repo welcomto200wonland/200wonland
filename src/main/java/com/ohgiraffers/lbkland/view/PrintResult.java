@@ -39,4 +39,7 @@ public class PrintResult {
         System.out.println(errorMessage);
     }
 
+    public void printRide(RideDTO ride) {
+        System.out.println(ride);
+    }
 }
