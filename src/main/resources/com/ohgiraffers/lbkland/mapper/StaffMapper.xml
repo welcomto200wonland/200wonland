@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ohgiraffers.lbkland.mapper.StaffMapper">
+
+    <resultMap id="staffResultMap" type="com.ohgiraffers.lbkland.dto.StaffDTO">
+        <id property="staffId" column="staff_id"/>
+        <result property="staffPhone" column="staff_phone"/>
+        <result property="staffRank" column="staff_rank"/>
+        <result property="rideCode" column="ride_code"/>
+        <result property="logCount" column="log_count"/>
+        <result property="staffName" column="staff_name"/>
+    </resultMap>
+
+    <select id="selectAllStaff" resultMap=""
+
+
+
+
+
+
+</mapper>
