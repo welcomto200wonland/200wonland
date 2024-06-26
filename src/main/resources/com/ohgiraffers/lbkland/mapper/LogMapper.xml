@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ohgiraffers.lbkland.mapper.LogMapper">
+    <resultMap id="logResultMap" type="com.ohgiraffers.lbkland.dto.LogDTO">
+        <result property="logId" column="log_id"/>
+        <result property="logContents" column="log_contents"/>
+        <result property="rideCode" column="ride_code"/>
+        <result property="logTitle" column="log_title"/>
+        <result property="logDate" column="log_date"/>
+        <result property="staffId" column="staff_id"/>
+    </resultMap>
+
+    <select id="selectAllLog" resultMap="logResultMap">
+        select * from log
+        order by log_id
+    </select>
+
+    <select id="selectLogByCode" parameterType="String" resultMap="logResultMap">
+        select * from log
+        where log_id = #{ code }
+    </select>
+
+    <select id="selectLogByStaffId" parameterType="String" resultMap="logResultMap">
+        select * from log
+        where staff_id = #{ staId }
+    </select>
+
+    <insert id="insertLog" parameterType="com.ohgiraffers.lbkland.dto.LogDTO">
+        insert into log(
+        log_id,
+        log_contents,
+        ride_code,
+        log_title,
+        log_date,
+        staff_id
+        ) values (
+        #{ logId },
+        #{ logContents },
+        #{ rideCode },
+        #{ logTitle },
+        #{ logDate },
+        #{ staffId }
+        )
+    </insert>
+
+    <update id="modifyLog" parameterType="com.ohgiraffers.lbkland.dto.LogDTO">
+        update log
+        set
+        log_contents = #{ logContents },
+        ride_code = #{ rideCode },
+        log_title = #{ logTitle }
+        where
+        log_id = #{ logId }
+    </update>
+
+    <delete id="deleteLog" parameterType="com.ohgiraffers.lbkland.dto.LogDTO">
+        delete
+        from log
+        where log_id = #{ logId }
+    </delete>
+
+</mapper>

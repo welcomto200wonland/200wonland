@@ -1,20 +1,14 @@
 package com.ohgiraffers.lbkland.view;
 
-import com.ohgiraffers.lbkland.dto.RideDTO;
+import com.ohgiraffers.lbkland.dto.LogDTO;
 
 import java.util.List;
 
+import com.ohgiraffers.lbkland.dto.RideDTO;
+
 public class PrintResult {
 
-    public void printRideList(List<RideDTO> rideList) {
-        for(RideDTO ride: rideList){
-            System.out.println(ride);
-        }
-    }
-
     public void printSuccessMessage(String successCode) {
-
-
 
         String successMessage = "";
 
@@ -37,6 +31,24 @@ public class PrintResult {
             case "delete" : errorMessage = "delete에 실패했습니다."; break;
         }
         System.out.println(errorMessage);
+    }
+
+    public void printLogList(List<LogDTO> logList) {
+
+        for (LogDTO logDTO : logList) {
+            System.out.println(logDTO);
+        }
+
+    }
+
+    public void printLog(LogDTO log) {
+        System.out.println(log);
+    }
+
+    public void printRideList(List<RideDTO> rideList) {
+        for(RideDTO ride: rideList){
+            System.out.println(ride);
+        }
     }
 
     public void printRide(RideDTO ride) {
