@@ -41,7 +41,6 @@ public class StaffController {
         }
     }
 
-
     public void selectRideByCode(Map<String, String> parameter) {
 
         String rideCode = parameter.get("rideCode");
@@ -110,5 +109,6 @@ public class StaffController {
         } else {
             printResult.printErrorMessage("delete");
         }
+
     }
 }
