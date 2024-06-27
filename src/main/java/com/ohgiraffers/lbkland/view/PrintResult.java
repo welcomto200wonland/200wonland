@@ -1,12 +1,25 @@
 package com.ohgiraffers.lbkland.view;
 
-import com.ohgiraffers.lbkland.dto.LogDTO;
+import com.ohgiraffers.lbkland.dto.StaffDTO;
 
 import java.util.List;
+
+import com.ohgiraffers.lbkland.dto.LogDTO;
 
 import com.ohgiraffers.lbkland.dto.RideDTO;
 
 public class PrintResult {
+
+    public void printStaffList(List<StaffDTO> staffList) {
+
+        for (StaffDTO staff : staffList) {
+            System.out.println(staff);
+        }
+    }
+
+    public void printMenu(StaffDTO staff) {
+        System.out.println(staff);
+    }
 
     public void printSuccessMessage(String successCode) {
 
@@ -38,7 +51,6 @@ public class PrintResult {
         for (LogDTO logDTO : logList) {
             System.out.println(logDTO);
         }
-
     }
 
     public void printLog(LogDTO log) {
