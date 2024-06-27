@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ohgiraffers.lbkland.mapper.StaffLoginMapper">
+
+    <resultMap id="staffLoginResultMap" type="com.ohgiraffers.lbkland.dto.StaffDTO">
+        <id property="staffId" column="staff_id"/>
+        <result property="staffPassword" column="staff_password"/>
+    </resultMap>
+
+    <select id="findStaffById" parameterType="String" resultMap="staffLoginResultMap">
+        select
+        staff_id,
+        staff_password
+        from staff
+        where staff_id = #{ staffId }
+    </select>
+
+</mapper>

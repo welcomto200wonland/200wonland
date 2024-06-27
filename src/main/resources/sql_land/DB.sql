@@ -56,7 +56,7 @@ CREATE TABLE `Staff`
     `ride_code`    VARCHAR(255) NOT NULL COMMENT 'ride_code',
     `log_count`    INTEGER COMMENT 'log_count',
     `staff_name` varchar(255) NOT NULL COMMENT 'staff_name',
-    PRIMARY KEY ( `staff_id`,`ride_code` )
+    constraint PRIMARY KEY ( `staff_id`,`ride_code` )
 ) COMMENT = '직원';
 
 
