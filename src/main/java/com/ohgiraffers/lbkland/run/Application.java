@@ -1,5 +1,6 @@
 package com.ohgiraffers.lbkland.run;
 
+import com.ohgiraffers.lbkland.controller.LoginController;
 import com.ohgiraffers.lbkland.controller.StaffController;
 
 import com.ohgiraffers.lbkland.controller.LogController;
@@ -10,6 +11,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+
+
+
 public class Application {
 
 
@@ -18,60 +22,107 @@ public class Application {
         Application app = new Application();
 
         Scanner sc = new Scanner(System.in);
+do {
+    System.out.println("============IBK랜드 로그인========");
+    System.out.println("IBK랜드 사이트 입니다.");
+    System.out.println("1. 회원으로 로그인");
+    System.out.println("2. 직원으로 로그인");
+    System.out.println("0. 프로그램 종료");
 
-            System.out.println("============IBK랜드 로그인========");
-            System.out.println("IBK랜드 사이트 입니다.");
-            System.out.println("로그인을 해주세요.");
-            System.out.print("ID: ");
-            String Id = sc.nextLine();
-            System.out.print("PW: ");
-            String Pw = sc.nextLine();
+    int no = sc.nextInt();
+    switch (no){
+        case 1: consumerLoginMain(); break;
+        case 2: staffLoginMain(); break;
+        case 0: return;
+    }
+} while(true);
 
+}
 
+    private static void staffLoginMain() {
+        LoginController loginController= new LoginController();
+        System.out.println("직원 로그인 페이지 입니다.");
+        loginController.tryStaffLogin(inputStaffIdPw());
+    }
 
+    public static void consumerLoginMain() {
+        LoginController loginController= new LoginController();
+        System.out.println("회원 로그인 페이지 입니다.");
+        loginController.tryConsumerLogin(inputConsumerIdPw());
+    }
 
-        }
+    private static Map<String,String> inputConsumerIdPw() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("회원 로그인 페이지입니다.");
+        System.out.println("ID를 입력하세요 : ");
+        String consumerId = sc.nextLine();
 
+        System.out.println("패스워드를 입력하세요 : ");
+        String consumerPw = sc.nextLine();
 
-        public static void consumerLogin () {
-            Scanner sc = new Scanner(System.in);
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("consumerId", consumerId);
+        parameter.put("consumerPw", consumerPw);
+
+        return parameter;
+    }
+
+    public static void consumerLogin () {
+        Scanner sc = new Scanner(System.in);
         RideController rideController = new RideController();
 
-            do {
-                System.out.println("============회원님의 관리 메뉴========");
-                System.out.println("1. 놀이기구 전체 조회");
-                System.out.println("2. 놀이기구 선택 조회");
-                System.out.println("3. 회원 정보 조회");
-                System.out.println("4. 회원 정보 수정");
-                System.out.println("5. 회원탈퇴");
-                System.out.println("0. 나가기");
-                System.out.println("메뉴 번호를 입력해주세요: ");
-                int no = sc.nextInt();
+        do {
+            System.out.println("============회원님의 관리 메뉴========");
+            System.out.println("1. 놀이기구 전체 조회");
+            System.out.println("2. 놀이기구 선택 조회");
+            System.out.println("3. 회원 정보 조회");
+            System.out.println("4. 회원 정보 수정");
+            System.out.println("5. 회원탈퇴");
+            System.out.println("0. 나가기");
+            System.out.println("메뉴 번호를 입력해주세요: ");
+            int no = sc.nextInt();
 
-                switch (no) {
-                    case 1:
-                        rideController.selectAllRide();
-                        break;
-                    case 2:
-                        rideController.selectRideByCode(inputRideCode1());
-                        break;
-                    case 3:
-                        break;
-                    case 4:
-                        break;
-                    case 5:
-                        break;
-                    case 0:
-                        return;
-                    default:
-                        System.out.println(" 잘못된 번호를 입력하셨습니다. ");
-                        break;
-                }
+            switch (no) {
+                case 1:
+                    rideController.selectAllRide();
+                    break;
+                case 2:
+                    rideController.selectRideByCode(inputRideCode1());
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 0:
+                    return;
+                default:
+                    System.out.println(" 잘못된 번호를 입력하셨습니다. ");
+                    break;
+            }
 
-            } while (true);
-        }
+        } while (true);
+    }
 
-        public static void staffLogin (){
+    private static Map<String,String> inputStaffIdPw() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("직원 로그인 페이지입니다.");
+        System.out.println("ID를 입력하세요 : ");
+        String id = sc.nextLine();
+
+        System.out.println("패스워드를 입력하세요 : ");
+        String pw = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("id", id);
+        parameter.put("pw", pw);
+
+        return parameter;
+
+    }
+
+    public static void staffLogin (){
 
             Scanner sc = new Scanner(System.in);
 
@@ -239,7 +290,7 @@ public class Application {
         } while (true);
     }
 
-    private static Map<String,String> inputRideCode1() {
+    public static Map<String,String> inputRideCode1() {
         Scanner sc = new Scanner(System.in);
         System.out.println("놀이기구 코드를 입력하세요 : ");
         String rideId = sc.nextLine();

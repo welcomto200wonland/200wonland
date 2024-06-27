@@ -10,11 +10,12 @@
         <result property="consumerPw" column="consumer_pw"/>
     </resultMap>
 
-    <select id="consumerLogin" resultMap="consumerLoginResultMap">
+    <select id="findConsumerById" parameterType="String" resultMap="consumerLoginResultMap">
         select
         consumer_id,
-        consumer_pw,
+        consumer_pw
         from consumer
+        where consumer_id =#{consumerId}
     </select>
 
 </mapper>

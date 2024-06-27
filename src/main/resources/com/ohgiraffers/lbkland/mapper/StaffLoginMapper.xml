@@ -10,7 +10,7 @@
         <result property="staffPassword" column="staff_password"/>
     </resultMap>
 
-    <select id="staffLogin" resultMap="staffLoginResultMap">
+    <select id="findStaffById" resultMap="staffLoginResultMap">
         select
         staff_id,
         staff_password,
