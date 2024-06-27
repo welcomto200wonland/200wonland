@@ -174,7 +174,7 @@ public class Application {
                 case 2: rideController.selectRideByCode(inputRideCode1()); break;
                 case 3: rideController.registRide(inputRide()); break;
                 case 4: rideController.modifyRide(inputModifyRide()); break;
-                case 5: rideController.deleteRide(inputRideCode()); break;
+                case 5: rideController.deleteRide(inputRideCode1()); break;
                 case 0: return;
             }
         } while (true);
