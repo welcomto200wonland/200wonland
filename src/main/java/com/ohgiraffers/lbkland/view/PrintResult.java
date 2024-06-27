@@ -7,6 +7,7 @@ import java.util.List;
 import com.ohgiraffers.lbkland.dto.LogDTO;
 
 import com.ohgiraffers.lbkland.dto.RideDTO;
+import com.ohgiraffers.lbkland.run.Application;
 
 public class PrintResult {
 
@@ -25,23 +26,39 @@ public class PrintResult {
 
         String successMessage = "";
 
-        switch ((successCode)){
-            case "insert" : successMessage = "insert에 성공했습니다."; break;
-            case "update" : successMessage = "update에 성공했습니다."; break;
-            case "delete" : successMessage = "delete에 성공했습니다."; break;
+        switch ((successCode)) {
+            case "insert":
+                successMessage = "insert에 성공했습니다.";
+                break;
+            case "update":
+                successMessage = "update에 성공했습니다.";
+                break;
+            case "delete":
+                successMessage = "delete에 성공했습니다.";
+                break;
         }
         System.out.println(successMessage);
     }
 
-    public void printErrorMessage(String errorCode){
+    public void printErrorMessage(String errorCode) {
 
-        String errorMessage= "";
-        switch (errorCode){
-            case "selectList" : errorMessage = "전체 조회에 실패했습니다."; break;
-            case "selectOne" : errorMessage = "단일 조회에 실패했습니다."; break;
-            case "insert" : errorMessage = "insert에 실패했습니다."; break;
-            case "update" : errorMessage = "update에 실패했습니다."; break;
-            case "delete" : errorMessage = "delete에 실패했습니다."; break;
+        String errorMessage = "";
+        switch (errorCode) {
+            case "selectList":
+                errorMessage = "전체 조회에 실패했습니다.";
+                break;
+            case "selectOne":
+                errorMessage = "단일 조회에 실패했습니다.";
+                break;
+            case "insert":
+                errorMessage = "insert에 실패했습니다.";
+                break;
+            case "update":
+                errorMessage = "update에 실패했습니다.";
+                break;
+            case "delete":
+                errorMessage = "delete에 실패했습니다.";
+                break;
         }
         System.out.println(errorMessage);
     }
@@ -58,7 +75,7 @@ public class PrintResult {
     }
 
     public void printRideList(List<RideDTO> rideList) {
-        for(RideDTO ride: rideList){
+        for (RideDTO ride : rideList) {
             System.out.println(ride);
         }
     }
@@ -66,4 +83,14 @@ public class PrintResult {
     public void printRide(RideDTO ride) {
         System.out.println(ride);
     }
+
+
+    public void printLoginStaff(){
+        Application.staffLogin();
+    }
+
+    public void printLoginConsumer(){
+        Application.consumerLogin();
+    }
+
 }
