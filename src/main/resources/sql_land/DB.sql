@@ -50,7 +50,8 @@ INSERT INTO RIDE (ride_code, ride_name, staff_id) VALUES
 CREATE TABLE `Staff`
 (
     `staff_id`    VARCHAR(255) NOT NULL COMMENT 'staff_id',
-    `staff_phone`    VARCHAR(255) COMMENT 'staff_phone',
+    `staff_password` VARCHAR(255) NOT NULL COMMENT 'staff_password',
+    `staff_phone`    VARCHAR(255) NOT NULL COMMENT 'staff_phone',
     `staff_rank`    VARCHAR(255) NOT NULL COMMENT 'staff_rank',
     `ride_code`    VARCHAR(255) NOT NULL COMMENT 'ride_code',
     `log_count`    INTEGER COMMENT 'log_count',
@@ -58,16 +59,13 @@ CREATE TABLE `Staff`
     PRIMARY KEY ( `staff_id`,`ride_code` )
 ) COMMENT = '직원';
 
-ALTER TABLE Staff ADD COLUMN staff_password varchar(255) NOT NULL ;
 
-
-INSERT INTO Staff (staff_id,staff_phone,staff_rank,ride_code,log_count,staff_name) VALUES
-                                                                                       ('S101','010-1234-5678','사원','R101','0','박장욱'),
-                                                                                       ('S102','010-2587-3699','대리','R102','1','한승엽'),
-                                                                                       ('S103','010-7896-5412','과장','R103','2','정승수'),
-                                                                                       ('S104','010-5557-8882','차장','R104','3','김현욱'),
-                                                                                       ('S105','010-3333-6697','부장','R105','4','김명희');
-
+INSERT INTO Staff (staff_id, staff_password, staff_phone, staff_rank, ride_code, log_count, staff_name) VALUES
+                                                                                                            ('S101','S101S','010-1234-5678','사원','R101','0','박장욱'),
+                                                                                                            ('S102','S102S','010-2587-3699','대리','R102','1','한승엽'),
+                                                                                                            ('S103','S103S','010-7896-5412','과장','R103','2','정승수'),
+                                                                                                            ('S104','S104S','010-5557-8882','차장','R104','3','김현욱'),
+                                                                                                            ('S105','S105S','010-3333-6697','부장','R105','4','김명희');
 CREATE TABLE `Consumer`
 (
     `Consumer_id`       VARCHAR(255) NOT NULL COMMENT 'Consumer_id',
