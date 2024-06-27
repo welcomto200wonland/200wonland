@@ -297,6 +297,7 @@ public class Application {
             System.out.println("4. 신규직원 정보 추가하기");
             System.out.println("5. 직원정보 수정하기");
             System.out.println("6. 퇴사직원 정보 삭제하기");
+            System.out.println("7. 고객관리 메뉴 진입");
             System.out.println("0. 이전메뉴로 돌아가기");
             System.out.print("메뉴 번호를 입력하세요 : ");
             int no = sc.nextInt();
@@ -308,6 +309,7 @@ public class Application {
                 case 4: staffController.registStaff(inputStaff()); break;
                 case 5: staffController.modifyStaff(inputModifyStaff()); break;
                 case 6: staffController.deleteStaff(inputStaffId()); break;
+                case 7:
                 case 0: return;
             }
         } while (true);
