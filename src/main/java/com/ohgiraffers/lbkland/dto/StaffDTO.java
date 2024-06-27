@@ -15,5 +15,6 @@ public class StaffDTO {
     private String rideCode;
     private int logCount;
     private String staffName;
+    private String staffPassword;
 
 }

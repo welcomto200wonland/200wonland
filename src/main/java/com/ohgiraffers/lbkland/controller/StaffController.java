@@ -61,6 +61,7 @@ public class StaffController {
         String staffRank = parameter.get("staffRank");
         String rideCode = parameter.get("rideCode");
         String staffName = parameter.get("staffName");
+        String staffPassword = parameter.get("staffPassword");
 
         StaffDTO staff = new StaffDTO();
         staff.setStaffId(staffId);
@@ -68,6 +69,7 @@ public class StaffController {
         staff.setStaffRank(staffRank);
         staff.setRideCode(rideCode);
         staff.setStaffName(staffName);
+        staff.setStaffPassword(staffPassword);
 
         if(staffService.registStaff(staff)) {
             printResult.printSuccessMessage("insert");
@@ -84,6 +86,7 @@ public class StaffController {
         String rideCode = parameter.get("rideCode");
         int logCount = Integer.parseInt(parameter.get("logCount"));
         String staffName = parameter.get("staffName");
+        String staffPassword = parameter.get("staffPassword");
 
         StaffDTO staff = new StaffDTO();
         staff.setStaffId(staffId);
@@ -92,6 +95,7 @@ public class StaffController {
         staff.setRideCode(rideCode);
         staff.setLogCount(logCount);
         staff.setStaffName(staffName);
+        staff.setStaffPassword(staffPassword);
 
         if(staffService.modifyStaff(staff)) {
             printResult.printSuccessMessage("update");

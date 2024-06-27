@@ -293,6 +293,8 @@ public class Application {
         String rideCode = sc.nextLine();
         System.out.print("직원의 이름을 입력하세요 : ");
         String staffName = sc.nextLine();
+        System.out.print("직원의 설정할 패스워드를 입력하세요 : ");
+        String staffPassword = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
         parameter.put("staffId", staffId);
@@ -300,6 +302,7 @@ public class Application {
         parameter.put("staffRank", staffRank);
         parameter.put("rideCode", rideCode);
         parameter.put("staffName", staffName);
+        parameter.put("staffPassword", staffPassword);
 
         return parameter;
     }
@@ -320,6 +323,8 @@ public class Application {
         String logCount = sc.nextLine();
         System.out.print("수정할 직원의 이름을 입력하세요 : ");
         String staffName = sc.nextLine();
+        System.out.print("수정할 직원의 패스워드를 입력하세요 : ");
+        String staffPassword = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
         parameter.put("staffId", staffId);
@@ -328,6 +333,7 @@ public class Application {
         parameter.put("rideCode", rideCode);
         parameter.put("logCount", logCount);
         parameter.put("staffName", staffName);
+        parameter.put("staffPassword", staffPassword);
 
         return parameter;
 

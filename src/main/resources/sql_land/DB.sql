@@ -60,6 +60,7 @@ CREATE TABLE `Staff`
     PRIMARY KEY ( `staff_id`,`ride_code` )
 ) COMMENT = 'Staff';
 
+ALTER TABLE Staff ADD COLUMN staff_password varchar(255) NOT NULL ;
 
 
 INSERT INTO Staff (staff_id,staff_phone,staff_rank,ride_code,log_count,staff_name) VALUES
@@ -68,6 +69,8 @@ INSERT INTO Staff (staff_id,staff_phone,staff_rank,ride_code,log_count,staff_nam
                                                                                        ('S103','010-7896-5412','과장','R103','2','정승수'),
                                                                                        ('S104','010-5557-8882','차장','R104','3','김현욱'),
                                                                                        ('S105','010-3333-6697','부장','R105','4','김명희');
+
+
 
 
 
