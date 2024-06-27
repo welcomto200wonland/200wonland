@@ -28,6 +28,7 @@ do {
     System.out.println("1. 회원으로 로그인");
     System.out.println("2. 직원으로 로그인");
     System.out.println("0. 프로그램 종료");
+    System.out.print("메뉴 번호를 입력해 주세요 : ");
 
     int no = sc.nextInt();
     switch (no){
@@ -109,14 +110,14 @@ do {
         Scanner sc = new Scanner(System.in);
         System.out.println("직원 로그인 페이지입니다.");
         System.out.println("ID를 입력하세요 : ");
-        String id = sc.nextLine();
+        String staffId = sc.nextLine();
 
         System.out.println("패스워드를 입력하세요 : ");
-        String pw = sc.nextLine();
+        String staffPassword = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
-        parameter.put("id", id);
-        parameter.put("pw", pw);
+        parameter.put("staffId", staffId);
+        parameter.put("staffPassword", staffPassword);
 
         return parameter;
 
@@ -341,7 +342,7 @@ do {
         StaffController staffController = new StaffController();
 
         do {
-            System.out.println("========= <직원관리> 서브 메뉴 =========");
+            System.out.println("========= <직원관리> 메뉴 =========");
             System.out.println("1. 직원 전체 조회하기");
             System.out.println("2. 직원 ID로 조회하기");
             System.out.println("3. 놀이기구 코드로 담당직원 조회하기");
