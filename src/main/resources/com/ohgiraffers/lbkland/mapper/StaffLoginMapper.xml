@@ -10,11 +10,12 @@
         <result property="staffPassword" column="staff_password"/>
     </resultMap>
 
-    <select id="findStaffById" resultMap="staffLoginResultMap">
+    <select id="findStaffById" parameterType="String" resultMap="staffLoginResultMap">
         select
         staff_id,
-        staff_password,
+        staff_password
         from staff
+        where staff_id = #{ staffId }
     </select>
 
 </mapper>
