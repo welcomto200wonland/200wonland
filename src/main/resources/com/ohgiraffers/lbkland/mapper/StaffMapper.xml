@@ -12,6 +12,7 @@
         <result property="rideCode" column="ride_code"/>
         <result property="logCount" column="log_count"/>
         <result property="staffName" column="staff_name"/>
+        <result property="staffPassword" column="staff_password"/>
     </resultMap>
 
     <select id="selectAllStaff" resultMap="staffResultMap">
@@ -21,7 +22,8 @@
         staff_rank,
         ride_code,
         log_count,
-        staff_name
+        staff_name,
+        staff_password
         from staff
     </select>
 
@@ -32,7 +34,8 @@
         staff_rank,
         ride_code,
         log_count,
-        staff_name
+        staff_name,
+        staff_password
         from staff
         where staff_id = #{ staffId }
     </select>
@@ -44,7 +47,8 @@
         staff_rank,
         ride_code,
         log_count,
-        staff_name
+        staff_name,
+        staff_password
         from staff
         where ride_code = #{ rideCode }
     </select>
@@ -56,13 +60,15 @@
         staff_phone,
         staff_rank,
         ride_code,
-        staff_name
+        staff_name,
+        staff_password
         ) values (
         #{ staffId },
         #{ staffPhone },
         #{ staffRank },
         #{ rideCode },
-        #{ staffName }
+        #{ staffName },
+        #{ staffPassword }
         )
     </insert>
 
@@ -74,7 +80,8 @@
         staff_rank = #{ staffRank },
         ride_code = #{ rideCode },
         log_count = #{ logCount },
-        staff_name = #{ staffName }
+        staff_name = #{ staffName },
+        staff_password = #{ staffPassword }
         where
         staff_id = #{ staffId }
     </update>

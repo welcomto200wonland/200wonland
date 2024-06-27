@@ -58,6 +58,7 @@ CREATE TABLE `Staff`
     PRIMARY KEY ( `staff_id`,`ride_code` )
 ) COMMENT = '직원';
 
+ALTER TABLE Staff ADD COLUMN staff_password varchar(255) NOT NULL ;
 
 
 INSERT INTO Staff (staff_id,staff_phone,staff_rank,ride_code,log_count,staff_name) VALUES
