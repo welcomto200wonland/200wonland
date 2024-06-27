@@ -9,11 +9,11 @@ import lombok.*;
 @ToString
 public class ConsumerDTO {
 
-    private String ConsumerId;
-    private String ConsumerPw;
-    private String ConsumerName;
-    private String ConsumerPhone;
-    private String ConsumerRank;
-    private String ConsumerDate;
+    private String consumerId;
+    private String consumerPw;
+    private String consumerName;
+    private String consumerPhone;
+    private String consumerRank;
+    private String consumerDate;
 
 }
