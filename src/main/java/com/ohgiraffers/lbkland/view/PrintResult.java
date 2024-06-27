@@ -86,11 +86,11 @@ public class PrintResult {
 
 
     public void printLoginStaff(){
-        Application.staffLogin();
+
     }
 
     public void printLoginConsumer(){
-        Application.consumerLogin();
+
     }
 
 }
