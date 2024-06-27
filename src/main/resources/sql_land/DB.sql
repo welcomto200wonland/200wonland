@@ -1,11 +1,9 @@
 use land_db;
 
 DROP TABLE IF EXISTS `Log` CASCADE;
-DROP TABLE IF EXISTS `Log` CASCADE;
-DROP TABLE IF EXISTS `Ride` CASCADE;
 DROP TABLE IF EXISTS `Ride` CASCADE;
 DROP TABLE IF EXISTS `Staff` CASCADE;
-DROP TABLE IF EXISTS `Staff` CASCADE;
+DROP TABLE IF EXISTS `Consumer` CASCADE;
 
 
 
@@ -18,7 +16,7 @@ CREATE TABLE `Log`
     `log_date` varchar(255) COMMENT 'log_date',
     `staff_id`    VARCHAR(255) COMMENT 'staff_id',
     CONSTRAINT PRIMARY KEY ( `log_id` )
-) COMMENT = 'Log';
+) COMMENT = '점검일지';
 
 
 INSERT INTO Log (log_id, log_contents, ride_code, log_title, log_date, staff_id) VALUES
@@ -35,7 +33,7 @@ CREATE TABLE `Ride`
     `ride_name`    VARCHAR(255) COMMENT 'ride_name',
     `staff_id`    VARCHAR(255) NOT NULL COMMENT 'staff_id',
     constraint PRIMARY KEY ( `ride_code`,`staff_id` )
-) COMMENT = 'Ride';
+) COMMENT = '놀이기구';
 
 
 
@@ -58,7 +56,7 @@ CREATE TABLE `Staff`
     `log_count`    INTEGER COMMENT 'log_count',
     `staff_name` varchar(255) NOT NULL COMMENT 'staff_name',
     PRIMARY KEY ( `staff_id`,`ride_code` )
-) COMMENT = 'Staff';
+) COMMENT = '직원';
 
 
 
@@ -69,8 +67,22 @@ INSERT INTO Staff (staff_id,staff_phone,staff_rank,ride_code,log_count,staff_nam
                                                                                        ('S104','010-5557-8882','차장','R104','3','김현욱'),
                                                                                        ('S105','010-3333-6697','부장','R105','4','김명희');
 
+CREATE TABLE `Consumer`
+(
+    `Consumer_id`       VARCHAR(255) NOT NULL COMMENT 'Consumer_id',
+    `Consumer_pw`      varchar(255) NOT NULL COMMENT 'Consumer_pw',
+    `Consumer_name`     varchar(255) NOT NULL COMMENT 'Consumer_name',
+    `Consumer_phone`    VARCHAR(255) COMMENT 'Consumer_phone',
+    `Consumer_rank`     VARCHAR(255) NOT NULL COMMENT 'Consumer_rank',
+    `Consumer_date`     VARCHAR(255) NOT NULL COMMENT 'Consumer_date',
+   CONSTRAINT PRIMARY KEY ( `Consumer_id` )
+) COMMENT = '고객';
 
 
 
-
-
+INSERT INTO Consumer (Consumer_id, Consumer_pw, Consumer_name, Consumer_phone, Consumer_rank, Consumer_date) VALUES
+                                                                                       ('C101','p123','권은혜','010-5234-5678','실버','2020-02-05'),
+                                                                                       ('C102','p234','배하은','010-4587-4699','골드','2020-03-05'),
+                                                                                       ('C103','p345','이의정','010-3896-3412','VIP','2020-04-05'),
+                                                                                       ('C104','p456','도라에몽','010-2557-2882','실버','2020-05-05'),
+                                                                                       ('C105','p567','맹구','010-1333-1697','골드','2020-06-05');
