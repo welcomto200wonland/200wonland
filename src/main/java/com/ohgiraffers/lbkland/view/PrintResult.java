@@ -1,5 +1,6 @@
 package com.ohgiraffers.lbkland.view;
 
+import com.ohgiraffers.lbkland.dto.ConsumerDTO;
 import com.ohgiraffers.lbkland.dto.StaffDTO;
 
 import java.util.List;
@@ -93,4 +94,14 @@ public class PrintResult {
 
     }
 
+    public void printConsumerList(List<ConsumerDTO> consumerList) {
+
+        for (ConsumerDTO consumerDTO : consumerList) {
+            System.out.println(consumerDTO);
+        }
+    }
+
+    public void printConsumer(ConsumerDTO consumer) {
+        System.out.println(consumer);
+    }
 }

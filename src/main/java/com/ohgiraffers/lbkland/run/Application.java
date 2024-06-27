@@ -1,5 +1,6 @@
 package com.ohgiraffers.lbkland.run;
 
+import com.ohgiraffers.lbkland.controller.ConsumerController;
 import com.ohgiraffers.lbkland.controller.LoginController;
 import com.ohgiraffers.lbkland.controller.StaffController;
 
@@ -10,9 +11,6 @@ import com.ohgiraffers.lbkland.controller.RideController;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-
-
-
 
 public class Application {
 
@@ -132,6 +130,7 @@ do {
             System.out.println("1. 직원 관리");
             System.out.println("2. 놀이기구 관리");
             System.out.println("3. 점검일지 관리");
+            System.out.println("4. 고객정보 관리");
             System.out.println("0. 나가기");
             System.out.println("관리 번호를 입력해주세요: ");
             int no = sc.nextInt();
@@ -140,6 +139,7 @@ do {
                 case 1: staffManagementSubMenu(); break;
                 case 2: selectRide(); break;
                 case 3: selectLog(); break;
+                case 4: selectConsumer(); break;
                 case 0: return;
                 default:
                     System.out.println(" 잘못된 번호를 입력하셨습니다. ");
@@ -451,7 +451,139 @@ do {
         return parameter;
 
     }
+
+    private static void selectConsumer() {
+
+        Scanner sc = new Scanner(System.in);
+
+        ConsumerController consumerController = new ConsumerController();
+
+        do {
+            System.out.println("=============== 점검일지 관리 시스템 ===============");
+            System.out.println("1. 전체 고객 명단 조회하기");
+            System.out.println("2. 고객 ID로 조회하기");
+            System.out.println("3. 고객 추가하기");
+            System.out.println("4. 고객 수정하기");
+            System.out.println("5. 고객 삭제하기");
+            System.out.println("0. 이전 메뉴로 돌아가기");
+            System.out.println("원하는 번호를 입력해주세요 : ");
+
+            int no = sc.nextInt();
+
+            switch (no) {
+                case 1 : consumerController.selectAllConsumer(); break;
+                case 2 : consumerController.selectConsumerById(inputConsumerCode()); break;
+                case 3 : consumerController.registerConsumer(registerConsumer()); break;
+                case 4 : consumerController.modifyConsumer(modifyConsumer()); break;
+                // modifyConsumerByStaff(modifyConsumerByStaff()); -> 스탭이 고객 정보를 수정할 때 사용할 메소드
+                case 5 : consumerController.delectConsumer(inputConsumerCode()); break;
+                case 0 : return;
+                default:
+                    System.out.println("잘못된 메뉴를 선택하셨습니다.");
+                    break;
+            }
+        } while (true);
+    }
+
+    private static Map<String, String> inputConsumerCode() {
+
+            Scanner sc = new Scanner(System.in);
+            System.out.println("고객 ID를 입력하세요 : ");
+            String id = sc.nextLine();
+
+            Map<String, String> parameter = new HashMap<>();
+            parameter.put("id", id);
+
+            return parameter;
+
+
+    }
+
+    private static Map<String, String> registerConsumer() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("등록할 고객 ID를 입력하세요 : ");
+        String consumerId = sc.nextLine();
+
+        System.out.println("고객 PASSWORD를 입력하세요 : ");
+        String consumerPw = sc.nextLine();
+
+        System.out.println("고객 이름을 입력하세요 : ");
+        String consumerName = sc.nextLine();
+
+        System.out.println("고객 전화번호를 입력하세요 : ");
+        String consumerPhone = sc.nextLine();
+
+        System.out.println("고객 등급을 입력하세요 : ");
+        String consumerRank = sc.nextLine();
+
+        System.out.println("고객 가입 날짜를 입력하세요 : ");
+        String consumerDate = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("consumerId", consumerId);
+        parameter.put("consumerPw", consumerPw);
+        parameter.put("consumerName", consumerName);
+        parameter.put("consumerPhone", consumerPhone);
+        parameter.put("consumerRank", consumerRank);
+        parameter.put("consumerDate", consumerDate);
+
+        return parameter;
+    }
+
+    private static Map<String,String> modifyConsumer() {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("고객 ID를 입력하세요.");
+        String consumerId = sc.nextLine();
+
+        System.out.println("고객 비밀번호를 입력하세요.");
+        String consumerPw = sc.nextLine();
+
+        System.out.println("고객 이름을 입력하세요.");
+        String consumerName = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("consumerId", consumerId);
+        parameter.put("consumerPw", consumerPw);
+        parameter.put("consumerName", consumerName);
+
+        return parameter;
+
+    }
+
+// 스탭이 고객 정보 수정할 때
+    private static Map<String,String> modifyConsumerByStaff() {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("고객 ID를 입력하세요.");
+        String consumerId = sc.nextLine();
+
+        System.out.println("고객 비밀번호를 입력하세요.");
+        String consumerPw = sc.nextLine();
+
+        System.out.println("고객 이름을 입력하세요.");
+        String consumerName = sc.nextLine();
+
+        System.out.println("고객 등급을 입력하세요.");
+        String consumerRank = sc.nextLine();
+
+        System.out.println("수정할 담당 직원을 입력하세요.");
+        String consumerDate = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("consumerId", consumerId);
+        parameter.put("consumerPw", consumerPw);
+        parameter.put("consumerName", consumerName);
+        parameter.put("consumerRank", consumerRank);
+        parameter.put("consumerDate", consumerDate);
+
+        return parameter;
+
+    }
 }
+
 
 
 

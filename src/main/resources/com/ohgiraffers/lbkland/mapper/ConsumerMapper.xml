@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ohgiraffers.lbkland.mapper.ConsumerMapper">
+    <resultMap id="consumerResultMap" type="com.ohgiraffers.lbkland.dto.ConsumerDTO">
+        <result property="consumerId" column="consumer_id"/>
+        <result property="consumerPw" column="consumer_pw"/>
+        <result property="consumerName" column="consumer_name"/>
+        <result property="consumerPhone" column="consumer_phone"/>
+        <result property="consumerRank" column="consumer_rank"/>
+        <result property="consumerDate" column="consumer_date"/>
+    </resultMap>
+
+    <select id="selectAllConsumer" resultMap="consumerResultMap">
+        select * from consumer
+        order by consumer_id
+    </select>
+
+    <select id="selectConsumerById" parameterType="String" resultMap="consumerResultMap">
+        select * from consumer
+        where consumer_id = #{ id }
+    </select>
+
+    <insert id="insertConsumer" parameterType="com.ohgiraffers.lbkland.dto.ConsumerDTO">
+        insert into consumer(
+        consumer_id,
+        consumer_pw,
+        consumer_name,
+        consumer_phone,
+        consumer_rank,
+        consumer_date
+        ) values (
+        #{ consumerId },
+        #{ consumerPw },
+        #{ consumerName },
+        #{ consumerPhone },
+        #{ consumerRank },
+        #{ consumerDate }
+        )
+    </insert>
+
+    <update id="modifyConsumer" parameterType="com.ohgiraffers.lbkland.dto.ConsumerDTO">
+        update consumer
+        set
+        consumer_pw = #{ consumerPw },
+        consumer_name = #{ consumerName }
+        where
+        consumer_id = #{ consumerId }
+    </update>
+
+    <delete id="deleteConsumer" parameterType="com.ohgiraffers.lbkland.dto.ConsumerDTO">
+        delete
+        from consumer
+        where consumer_id = #{ consumerId }
+    </delete>
+
+</mapper>
