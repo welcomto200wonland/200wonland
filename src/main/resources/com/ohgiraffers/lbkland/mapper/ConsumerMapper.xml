@@ -60,6 +60,7 @@
     <update id="modifyConsumer" parameterType="com.ohgiraffers.lbkland.dto.ConsumerDTO">
         update consumer
         set
+        consumer_id = #{ consumerId },
         consumer_pw = #{ consumerPw },
         consumer_name = #{ consumerName }
         where
