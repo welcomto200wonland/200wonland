@@ -195,4 +195,51 @@ public class ConsumerController {
             printResult.printErrorMessage("update");
         }
     }
+
+
+    public void modifyConsumerPwByConsumer(Map<String, String> parameter) {
+        String consumerId = parameter.get("consumerId");
+        String consumerPw = parameter.get("consumerPw");
+
+        ConsumerDTO consumer = new ConsumerDTO();
+        consumer.setConsumerPw(consumerPw);
+        consumer.setConsumerId(consumerId);
+
+        if (consumerService.modifyConsumerPwByConsumer(consumer)) {
+            printResult.printSuccessMessage("update");
+        } else {
+            printResult.printErrorMessage("update");
+        }
+    }
+
+    public void modifyConsumerNameByConsumer(Map<String, String> parameter) {
+        String consumerId = parameter.get("consumerId");
+        String consumerName = parameter.get("consumerName");
+
+        ConsumerDTO consumer = new ConsumerDTO();
+        consumer.setConsumerName(consumerName);
+        consumer.setConsumerId(consumerId);
+
+        if (consumerService.modifyConsumerNameByConsumer(consumer)) {
+            printResult.printSuccessMessage("update");
+        } else {
+            printResult.printErrorMessage("update");
+        }
+
+    }
+
+    public void modifyConsumerphoneByConsumer(Map<String, String> parameter) {
+        String consumerId = parameter.get("consumerId");
+        String consumerName = parameter.get("consumerPhone");
+
+        ConsumerDTO consumer = new ConsumerDTO();
+        consumer.setConsumerPhone(consumerName);
+        consumer.setConsumerId(consumerId);
+
+        if (consumerService.modifyConsumerphoneByConsumer(consumer)) {
+            printResult.printSuccessMessage("update");
+        } else {
+            printResult.printErrorMessage("update");
+        }
+    }
 }

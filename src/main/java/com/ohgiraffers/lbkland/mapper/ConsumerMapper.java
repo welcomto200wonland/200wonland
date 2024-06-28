@@ -24,4 +24,10 @@ public interface ConsumerMapper {
     int modifyConsumerByName(ConsumerDTO consumer);
     int modifyConsumerByRank(ConsumerDTO consumer);
     int modifyConsumerByPhone(ConsumerDTO consumer);
+
+    int modifyConsumerPwByConsumer(ConsumerDTO consumer);
+
+    int modifyConsumerNameByConsumer(ConsumerDTO consumer);
+
+    int modifyConsumerphoneByConsumer(ConsumerDTO consumer);
 }
