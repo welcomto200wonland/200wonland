@@ -5,6 +5,11 @@ import com.ohgiraffers.lbkland.dto.StaffDTO;
 import com.ohgiraffers.lbkland.mapper.ConsumerLoginMapper;
 import com.ohgiraffers.lbkland.mapper.StaffLoginMapper;
 import org.apache.ibatis.session.SqlSession;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 import static com.ohgiraffers.lbkland.common.Template.getSqlSession;
 
 public class LoginService {
@@ -43,7 +48,9 @@ public class LoginService {
         return result;
     }
 
-    public boolean tryVipLogin(ConsumerDTO consumer) {
+    // VIP 회원의 로그인
+    // VIP 회원이 로그인 <-> 일반회원 로그인 차이(RANK가 다름, VIP의 메뉴를 보여주고싶음)
+    public Map<String, Boolean> tryVipLogin(ConsumerDTO consumer) {
 
         SqlSession sqlSession =getSqlSession();
 
@@ -53,14 +60,17 @@ public class LoginService {
         ConsumerDTO foundConsumer = consumerLoginMapper.findConsumerById(consumer.getConsumerId());
 
         // 찾아온 회원의 비밀번호와 입력받은 비밀번호가 일치하는지 확인
-        boolean result = foundConsumer.getConsumerPw().equals(consumer.getConsumerPw());
+        boolean loginResult = foundConsumer.getConsumerPw().equals(consumer.getConsumerPw());
+        boolean isVIP = foundConsumer.getConsumerRank().equals("VIP");
 
-        // VIP면 로그인 한다 ?
-         if(foundConsumer.getConsumerRank().equals("VIP")){
-             System.out.println("VIP 고객님 환영합니다.");
-         } else {
-             System.out.println("VIP 고객이 아닙니다.");
-         }
+        // 입력한 애가 VIP인지 아닌지
+        // VIP인지 아닌지 결과를 담는 변수
+
+        Map<String, Boolean> result = new HashMap<>();
+
+        result.put("loginResult", loginResult);
+        result.put("isVIP", isVIP);
+
 
         sqlSession.close();
 
