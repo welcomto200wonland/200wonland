@@ -492,16 +492,16 @@ public class Application {
 
         System.out.print("직원의 ID를 입력하세요 : ");
         String staffId = sc.nextLine();
+        System.out.print("직원의 설정할 패스워드를 입력하세요 : ");
+        String staffPassword = sc.nextLine();
+        System.out.print("직원의 이름을 입력하세요 : ");
+        String staffName = sc.nextLine();
         System.out.print("직원의 핸드폰번호를 입력하세요(-포함) : ");
         String staffPhone = sc.nextLine();
         System.out.print("직원의 직급을 입력하세요 : ");
         String staffRank = sc.nextLine();
         System.out.print("직원이 담당하고 있는 놀이기구의 코드를 입력하세요 : ");
         String rideCode = sc.nextLine();
-        System.out.print("직원의 이름을 입력하세요 : ");
-        String staffName = sc.nextLine();
-        System.out.print("직원의 설정할 패스워드를 입력하세요 : ");
-        String staffPassword = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
         parameter.put("staffId", staffId);
@@ -519,6 +519,10 @@ public class Application {
 
         System.out.print("수정할 직원의 ID를 입력하세요 : ");
         String staffId = sc.nextLine();
+        System.out.print("수정할 직원의 패스워드를 입력하세요 : ");
+        String staffPassword = sc.nextLine();
+        System.out.print("수정할 직원의 이름을 입력하세요 : ");
+        String staffName = sc.nextLine();
         System.out.print("수정할 직원의 핸드폰번호를 입력하세요(-포함) : ");
         String staffPhone = sc.nextLine();
         System.out.print("수정할 직원의 직급을 입력하세요 : ");
@@ -527,10 +531,6 @@ public class Application {
         String rideCode = sc.nextLine();
         System.out.print("수정할 직원의 작업일지 작성수를 입력하세요 : ");
         String logCount = sc.nextLine();
-        System.out.print("수정할 직원의 이름을 입력하세요 : ");
-        String staffName = sc.nextLine();
-        System.out.print("수정할 직원의 패스워드를 입력하세요 : ");
-        String staffPassword = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
         parameter.put("staffId", staffId);
