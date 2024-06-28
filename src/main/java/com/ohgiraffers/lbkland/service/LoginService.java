@@ -13,6 +13,7 @@ public class LoginService {
     private StaffLoginMapper staffLoginMapper;
 
     public boolean tryConsumerLogin(ConsumerDTO consumer) {
+
         SqlSession sqlSession =getSqlSession();
 
         consumerLoginMapper = sqlSession.getMapper(ConsumerLoginMapper.class);
@@ -41,5 +42,30 @@ public class LoginService {
         sqlSession.close();
 
         return result;
+    }
+
+    public boolean tryVipLogin(ConsumerDTO consumer) {
+
+        SqlSession sqlSession =getSqlSession();
+
+        consumerLoginMapper = sqlSession.getMapper(ConsumerLoginMapper.class);
+
+        // 입력받은 id로 회원 한명의 정보를 가져오기
+        ConsumerDTO foundConsumer = consumerLoginMapper.findConsumerById(consumer.getConsumerId());
+
+        // 찾아온 회원의 비밀번호와 입력받은 비밀번호가 일치하는지 확인
+        boolean result = foundConsumer.getConsumerPw().equals(consumer.getConsumerPw());
+
+        // VIP면 로그인 한다 ?
+         if(foundConsumer.getConsumerRank().equals("VIP")){
+             System.out.println("VIP 고객님 환영합니다.");
+         } else {
+             System.out.println("VIP 고객이 아닙니다.");
+         }
+
+        sqlSession.close();
+
+        return result;
+
     }
 }

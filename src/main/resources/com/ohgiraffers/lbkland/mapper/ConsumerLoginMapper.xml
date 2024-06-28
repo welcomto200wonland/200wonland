@@ -13,9 +13,10 @@
     <select id="findConsumerById" parameterType="String" resultMap="consumerLoginResultMap">
         select
         consumer_id,
-        consumer_pw
+        consumer_pw,
+        consumer_rank
         from consumer
-        where consumer_id =#{consumerId}
+        where consumer_id = #{consumerId}
     </select>
 
 </mapper>

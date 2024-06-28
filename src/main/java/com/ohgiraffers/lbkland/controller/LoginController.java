@@ -52,4 +52,24 @@ public class LoginController {
             System.out.println("너 누구야? 나가");
         }
     }
+
+    public void tryVipLogin(Map<String, String> parameter) {
+
+        Application app = new Application();
+
+        String consumerId = parameter.get("consumerId");
+        String consumerPw = parameter.get("consumerPw");
+
+        ConsumerDTO consumer = new ConsumerDTO();
+        consumer.setConsumerId(consumerId);
+        consumer.setConsumerPw(consumerPw);
+
+        if (loginService.tryVipLogin(consumer)) {
+            app.vipLogin();
+        } else {
+            System.out.println("다시 로그인해주세요.");
+        }
+
+
+    }
 }
