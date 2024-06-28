@@ -43,17 +43,17 @@ public class Application {
 
     // 로그인 기능
     private static void staffLoginMain() {
-        LoginController loginController= new LoginController();
+        LoginController loginController = new LoginController();
         System.out.println("직원 로그인 페이지 입니다.");
         loginController.tryStaffLogin(inputStaffIdPw());
     }
     public static void consumerLoginMain() {
-        LoginController loginController= new LoginController();
+        LoginController loginController = new LoginController();
         System.out.println("회원 로그인 페이지 입니다.");
         loginController.tryConsumerLogin(inputConsumerIdPw());
     }
     private static void vipLoginMain() {
-        LoginController loginController= new LoginController();
+        LoginController loginController = new LoginController();
         System.out.println("VIP 로그인 페이지 입니다.");
         loginController.tryVipLogin(inputVipIdPw());
     }
@@ -73,7 +73,8 @@ public class Application {
 
         return parameter;
     }
-    private static Map<String,String> inputStaffIdPw() {
+
+    private static Map<String, String> inputStaffIdPw() {
         Scanner sc = new Scanner(System.in);
         System.out.println("직원 로그인 페이지입니다.");
         System.out.println("ID를 입력하세요 : ");
@@ -89,6 +90,7 @@ public class Application {
         return parameter;
 
     }
+
     private static Map<String, String> inputConsumerSignUp() {
 
         Scanner sc = new Scanner(System.in);
@@ -118,7 +120,8 @@ public class Application {
         return parameter;
 
     }
-    private static Map<String,String> inputConsumerIdPw() {
+
+    private static Map<String, String> inputConsumerIdPw() {
         Scanner sc = new Scanner(System.in);
         System.out.println("회원 로그인 페이지입니다.");
         System.out.println("ID를 입력하세요 : ");
@@ -163,7 +166,8 @@ public class Application {
             }
         } while (true);
     }
-    public static void consumerLogin () {
+
+    public static void consumerLogin() {
         Scanner sc = new Scanner(System.in);
         RideController rideController = new RideController();
         ConsumerController consumerController = new ConsumerController();
@@ -203,7 +207,8 @@ public class Application {
 
         } while (true);
     }
-    public static void staffLogin (){
+
+    public static void staffLogin() {
 
         Scanner sc = new Scanner(System.in);
 
@@ -228,7 +233,7 @@ public class Application {
                     break;
             }
 
-        }  while (true) ;
+        } while (true);
 
     }
 
@@ -266,6 +271,7 @@ public class Application {
             }
         } while (true);
     }
+
     private static Map<String, String> inputLogCode() {
 
         Scanner sc = new Scanner(System.in);
@@ -278,6 +284,7 @@ public class Application {
         return parameter;
 
     }
+
     private static Map<String, String> inputStaffCode() {
 
         Scanner sc = new Scanner(System.in);
@@ -290,6 +297,7 @@ public class Application {
         return parameter;
 
     }
+
     private static Map<String, String> registerLog() {
 
         Scanner sc = new Scanner(System.in);
@@ -322,6 +330,7 @@ public class Application {
         return parameter;
 
     }
+
     private static Map<String, String> inputModifyLog() {
 
         Scanner sc = new Scanner(System.in);
@@ -348,7 +357,7 @@ public class Application {
 
 
     // 놀이기구 메뉴 및 기능
-    public static void selectRide(){
+    public static void selectRide() {
         Scanner sc = new Scanner(System.in);
         RideController rideController = new RideController();
         do {
@@ -372,15 +381,17 @@ public class Application {
             }
         } while (true);
     }
-    public static Map<String,String> inputRideCode1() {
+
+    public static Map<String, String> inputRideCode1() {
         Scanner sc = new Scanner(System.in);
         System.out.println("놀이기구 코드를 입력하세요 : ");
         String rideId = sc.nextLine();
-        Map<String,String> parameter = new HashMap<>();
-        parameter.put("rideId",rideId);
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("rideId", rideId);
         return parameter;
     }
-    private static Map<String,String> inputRide() {
+
+    private static Map<String, String> inputRide() {
         Scanner sc = new Scanner(System.in);
         System.out.println("놀이기구 코드를 입력하세요.");
         String rideId = sc.nextLine();
@@ -390,14 +401,15 @@ public class Application {
         String staffId = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
-        parameter.put("rideId",rideId);
-        parameter.put("rideName",rideName);
-        parameter.put("staffId",staffId);
+        parameter.put("rideId", rideId);
+        parameter.put("rideName", rideName);
+        parameter.put("staffId", staffId);
 
         return parameter;
 
     }
-    private static Map<String,String> inputModifyRide() {
+
+    private static Map<String, String> inputModifyRide() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("수정할 놀이기구 코드을 입력하세요.");
@@ -408,9 +420,9 @@ public class Application {
         String staffId = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
-        parameter.put("rideId",rideId);
-        parameter.put("rideName",rideName);
-        parameter.put("staffId",staffId);
+        parameter.put("rideId", rideId);
+        parameter.put("rideName", rideName);
+        parameter.put("staffId", staffId);
         return parameter;
 
     }
@@ -436,26 +448,187 @@ public class Application {
             int no = sc.nextInt();
 
             switch (no) {
-                case 1: staffController.selectAllStaff(); break;
-                case 2: staffController.selectStaffById(inputStaffId()); break;
-                case 3: staffController.selectRideByCode(inputRideCode()); break;
-                case 4: staffController.registStaff(inputStaff()); break;
-                case 5: staffController.modifyStaff(inputModifyStaff()); break;
-                case 6: staffController.deleteStaff(inputStaffId()); break;
-                case 7: selectConsumer();break;
-                case 0: return;
+                case 1:
+                    staffController.selectAllStaff();
+                    break;
+                case 2:
+                    staffController.selectStaffById(inputStaffId());
+                    break;
+                case 3:
+                    staffController.selectRideByCode(inputRideCode());
+                    break;
+                case 4:
+                    staffController.registStaff(inputStaff());
+                    break;
+                case 5:
+                    staffManagementSubMenu1();
+                    break;
+                case 6:
+                    staffController.deleteStaff(inputStaffId());
+                    break;
+                case 7:
+                    selectConsumer();
+                    break;
+                case 0:
+                    return;
             }
         } while (true);
 
     }
-    private static Map<String, String> inputStaffId() {
+
+    // 직원정보 세부수정 메뉴
+    private static void staffManagementSubMenu1() {
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("직원의 ID를 입력해 주세요 : ");
+        StaffController staffController = new StaffController();
+
+        do {
+            System.out.println("========= <직원정보 수정> 메뉴 =========");
+            System.out.println("1. PASSWORD 수정");
+            System.out.println("2. 이름 수정");
+            System.out.println("3. 핸드폰번호 수정");
+            System.out.println("4. 직급 수정");
+            System.out.println("5. 담당 놀이기구 코드 수정");
+            System.out.println("6. 점검일지 작성 수 수정");
+            System.out.println("0. 이전메뉴로 돌아가기");
+            System.out.print("메뉴 번호를 입력하세요 : ");
+            int no = sc.nextInt();
+
+            switch (no) {
+                case 1:
+                    staffController.modifyStaffPassword(inputStaffPassword());
+                    break;
+                case 2:
+                    staffController.modifyStaffName(inputStaffName());
+                    break;
+                case 3:
+                    staffController.modifyStaffPhone(inputStaffPhone());
+                    break;
+                case 4:
+                    staffController.modifyStaffRank(inputStaffRank());
+                    break;
+                case 5:
+                    staffController.modifyStaffRideCode(inputStaffRideCode());
+                    break;
+                case 6:
+                    staffController.modifyStaffLogCount(inputStaffLogCount());
+                    break;
+                case 0:
+                    return;
+            }
+        } while (true);
+    }
+
+    // 직원 점검일지 작성 수만 수정
+    private static Map<String, String> inputStaffLogCount() {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("수정할 직원의 ID를 입력하세요 : ");
         String staffId = sc.nextLine();
+        System.out.print("수정할 직원의 점검일지 작성 수를 입력하세요 : ");
+        String staffLogCount = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
         parameter.put("staffId", staffId);
+        parameter.put("staffLogCount", staffLogCount);
+
+        return parameter;
+
+    }
+
+    // 직원 담당 놀이기구 코드만 수정
+    private static Map<String, String> inputStaffRideCode() {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("수정할 직원의 ID를 입력하세요 : ");
+        String staffId = sc.nextLine();
+        System.out.print("수정할 직원의 담당 놀이기구 코드를 입력하세요 : ");
+        String staffRideCode = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("staffId", staffId);
+        parameter.put("staffRideCode", staffRideCode);
+
+        return parameter;
+
+    }
+
+    // 직원 직급만 수정
+    private static Map<String, String> inputStaffRank() {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("수정할 직원의 ID를 입력하세요 : ");
+        String staffId = sc.nextLine();
+        System.out.print("수정할 직원의 직급을 입력하세요 : ");
+        String staffRank = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("staffId", staffId);
+        parameter.put("staffRank", staffRank);
+
+        return parameter;
+
+    }
+
+    // 직원 핸드폰번호만 수정
+    private static Map<String, String> inputStaffPhone() {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("수정할 직원의 ID를 입력하세요 : ");
+        String staffId = sc.nextLine();
+        System.out.print("수정할 직원의 핸드폰번호를 입력하세요 : ");
+        String staffPhone = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("staffId", staffId);
+        parameter.put("staffPhone", staffPhone);
+
+        return parameter;
+
+    }
+
+    // 직원 이름만 수정
+    private static Map<String, String> inputStaffName() {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("수정할 직원의 ID를 입력하세요 : ");
+        String staffId = sc.nextLine();
+        System.out.print("수정할 직원의 이름을 입력하세요 : ");
+        String staffName = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("staffId", staffId);
+        parameter.put("staffName", staffName);
+
+        return parameter;
+
+    }
+
+    // 직원 패스워드만 수정
+    private static Map<String, String> inputStaffPassword() {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("수정할 직원의 ID를 입력하세요 : ");
+        String staffId = sc.nextLine();
+        System.out.print("수정할 직원의 패스워드를 입력하세요 : ");
+        String staffPassword = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("staffId", staffId);
+        parameter.put("staffPassword", staffPassword);
+
+        return parameter;
+
+    }
+
+    private static Map<String, String> inputStaffId () {
+
+            Scanner sc = new Scanner(System.in);
+            System.out.print("직원의 ID를 입력해 주세요 : ");
+            String staffId = sc.nextLine();
+
+            Map<String, String> parameter = new HashMap<>();
+            parameter.put("staffId", staffId);
 
         return parameter;
     }
@@ -474,60 +647,61 @@ public class Application {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("직원의 ID를 입력하세요 : ");
-        String staffId = sc.nextLine();
-        System.out.print("직원의 설정할 패스워드를 입력하세요 : ");
-        String staffPassword = sc.nextLine();
-        System.out.print("직원의 이름을 입력하세요 : ");
-        String staffName = sc.nextLine();
-        System.out.print("직원의 핸드폰번호를 입력하세요(-포함) : ");
-        String staffPhone = sc.nextLine();
-        System.out.print("직원의 직급을 입력하세요 : ");
-        String staffRank = sc.nextLine();
-        System.out.print("직원이 담당하고 있는 놀이기구의 코드를 입력하세요 : ");
-        String rideCode = sc.nextLine();
+            System.out.print("직원의 ID를 입력하세요 : ");
+            String staffId = sc.nextLine();
+            System.out.print("직원의 설정할 패스워드를 입력하세요 : ");
+            String staffPassword = sc.nextLine();
+            System.out.print("직원의 이름을 입력하세요 : ");
+            String staffName = sc.nextLine();
+            System.out.print("직원의 핸드폰번호를 입력하세요(-포함) : ");
+            String staffPhone = sc.nextLine();
+            System.out.print("직원의 직급을 입력하세요 : ");
+            String staffRank = sc.nextLine();
+            System.out.print("직원이 담당하고 있는 놀이기구의 코드를 입력하세요 : ");
+            String rideCode = sc.nextLine();
 
-        Map<String, String> parameter = new HashMap<>();
-        parameter.put("staffId", staffId);
-        parameter.put("staffPhone", staffPhone);
-        parameter.put("staffRank", staffRank);
-        parameter.put("rideCode", rideCode);
-        parameter.put("staffName", staffName);
-        parameter.put("staffPassword", staffPassword);
+            Map<String, String> parameter = new HashMap<>();
+            parameter.put("staffId", staffId);
+            parameter.put("staffPhone", staffPhone);
+            parameter.put("staffRank", staffRank);
+            parameter.put("rideCode", rideCode);
+            parameter.put("staffName", staffName);
+            parameter.put("staffPassword", staffPassword);
 
-        return parameter;
-    }
-    private static Map<String, String> inputModifyStaff() {
+            return parameter;
+        }
 
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("수정할 직원의 ID를 입력하세요 : ");
-        String staffId = sc.nextLine();
-        System.out.print("수정할 직원의 패스워드를 입력하세요 : ");
-        String staffPassword = sc.nextLine();
-        System.out.print("수정할 직원의 이름을 입력하세요 : ");
-        String staffName = sc.nextLine();
-        System.out.print("수정할 직원의 핸드폰번호를 입력하세요(-포함) : ");
-        String staffPhone = sc.nextLine();
-        System.out.print("수정할 직원의 직급을 입력하세요 : ");
-        String staffRank = sc.nextLine();
-        System.out.print("수정할 직원의 담당하고 있는 놀이기구의 코드를 입력하세요 : ");
-        String rideCode = sc.nextLine();
-        System.out.print("수정할 직원의 작업일지 작성수를 입력하세요 : ");
-        String logCount = sc.nextLine();
-
-        Map<String, String> parameter = new HashMap<>();
-        parameter.put("staffId", staffId);
-        parameter.put("staffPhone", staffPhone);
-        parameter.put("staffRank", staffRank);
-        parameter.put("rideCode", rideCode);
-        parameter.put("logCount", logCount);
-        parameter.put("staffName", staffName);
-        parameter.put("staffPassword", staffPassword);
-
-        return parameter;
-
-    }
+//        private static Map<String, String> inputModifyStaff () {
+//
+//            Scanner sc = new Scanner(System.in);
+//
+//            System.out.print("수정할 직원의 ID를 입력하세요 : ");
+//            String staffId = sc.nextLine();
+//            System.out.print("수정할 직원의 패스워드를 입력하세요 : ");
+//            String staffPassword = sc.nextLine();
+//            System.out.print("수정할 직원의 이름을 입력하세요 : ");
+//            String staffName = sc.nextLine();
+//            System.out.print("수정할 직원의 핸드폰번호를 입력하세요(-포함) : ");
+//            String staffPhone = sc.nextLine();
+//            System.out.print("수정할 직원의 직급을 입력하세요 : ");
+//            String staffRank = sc.nextLine();
+//            System.out.print("수정할 직원의 담당하고 있는 놀이기구의 코드를 입력하세요 : ");
+//            String rideCode = sc.nextLine();
+//            System.out.print("수정할 직원의 작업일지 작성수를 입력하세요 : ");
+//            String logCount = sc.nextLine();
+//
+//            Map<String, String> parameter = new HashMap<>();
+//            parameter.put("staffId", staffId);
+//            parameter.put("staffPhone", staffPhone);
+//            parameter.put("staffRank", staffRank);
+//            parameter.put("rideCode", rideCode);
+//            parameter.put("logCount", logCount);
+//            parameter.put("staffName", staffName);
+//            parameter.put("staffPassword", staffPassword);
+//
+//            return parameter;
+//
+//        }
 
     // 고객관리 메뉴 및 기능
     private static void selectConsumer() {
@@ -604,9 +778,9 @@ public class Application {
         parameter.put("consumerRank", consumerRank);
         parameter.put("consumerDate", consumerDate);
 
-        return parameter;
-    }
-    private static Map<String,String> modifyConsumerByConsumer() {
+            return parameter;
+        }
+        private static Map<String, String> modifyConsumerByConsumer () {
 
         Scanner sc = new Scanner(System.in);
 
@@ -628,8 +802,8 @@ public class Application {
 
     }
 
-    // 스탭이 고객 정보 수정할 때
-    private static Map<String,String> modifyConsumerByStaff() {
+        // 스탭이 고객 정보 수정할 때
+        private static Map<String, String> modifyConsumerByStaff () {
 
         Scanner sc = new Scanner(System.in);
 

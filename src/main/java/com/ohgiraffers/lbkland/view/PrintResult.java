@@ -37,6 +37,9 @@ public class PrintResult {
             case "update":
                 successMessage = "update에 성공했습니다.";
                 break;
+            case "update1" :
+                successMessage = "정보 수정에 성공했습니다.";
+                break;
             case "delete":
                 successMessage = "delete에 성공했습니다.";
                 break;
@@ -62,6 +65,9 @@ public class PrintResult {
                 break;
             case "update":
                 errorMessage = "update에 실패했습니다.";
+                break;
+            case "update1" :
+                errorMessage = "정보 수정에 실패했습니다.";
                 break;
             case "delete":
                 errorMessage = "delete에 실패했습니다.";

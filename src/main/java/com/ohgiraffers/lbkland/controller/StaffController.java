@@ -78,30 +78,131 @@ public class StaffController {
         }
     }
 
-    public void modifyStaff(Map<String, String> parameter) {
+//    public void modifyStaff(Map<String, String> parameter) {
+//
+//        String staffId = parameter.get("staffId");
+//        String staffPhone = parameter.get("staffPhone");
+//        String staffRank = parameter.get("staffRank");
+//        String rideCode = parameter.get("rideCode");
+//        int logCount = Integer.parseInt(parameter.get("logCount"));
+//        String staffName = parameter.get("staffName");
+//        String staffPassword = parameter.get("staffPassword");
+//
+//        StaffDTO staff = new StaffDTO();
+//        staff.setStaffId(staffId);
+//        staff.setStaffPhone(staffPhone);
+//        staff.setStaffRank(staffRank);
+//        staff.setRideCode(rideCode);
+//        staff.setLogCount(logCount);
+//        staff.setStaffName(staffName);
+//        staff.setStaffPassword(staffPassword);
+//
+//        if(staffService.modifyStaff(staff)) {
+//            printResult.printSuccessMessage("update");
+//        } else {
+//            printResult.printErrorMessage("update");
+//        }
+//    }
+
+    public void modifyStaffPassword(Map<String, String> parameter) {
 
         String staffId = parameter.get("staffId");
-        String staffPhone = parameter.get("staffPhone");
-        String staffRank = parameter.get("staffRank");
-        String rideCode = parameter.get("rideCode");
-        int logCount = Integer.parseInt(parameter.get("logCount"));
-        String staffName = parameter.get("staffName");
         String staffPassword = parameter.get("staffPassword");
 
         StaffDTO staff = new StaffDTO();
         staff.setStaffId(staffId);
-        staff.setStaffPhone(staffPhone);
-        staff.setStaffRank(staffRank);
-        staff.setRideCode(rideCode);
-        staff.setLogCount(logCount);
-        staff.setStaffName(staffName);
         staff.setStaffPassword(staffPassword);
 
-        if(staffService.modifyStaff(staff)) {
-            printResult.printSuccessMessage("update");
+        if (staffService.modifyStaffPassword(staff)) {
+            printResult.printSuccessMessage("update1");
         } else {
-            printResult.printErrorMessage("update");
+            printResult.printErrorMessage("update1");
         }
+    }
+
+    public void modifyStaffName(Map<String, String> parameter) {
+
+        String staffId = parameter.get("staffId");
+        String staffName = parameter.get("staffName");
+
+        StaffDTO staff = new StaffDTO();
+        staff.setStaffId(staffId);
+        staff.setStaffName(staffName);
+
+        if (staffService.modifyStaffName(staff)) {
+            printResult.printSuccessMessage("update1");
+        } else {
+            printResult.printErrorMessage("update1");
+        }
+
+    }
+
+    public void modifyStaffPhone(Map<String, String> parameter) {
+
+        String staffId = parameter.get("staffId");
+        String staffPhone = parameter.get("staffPhone");
+
+        StaffDTO staff = new StaffDTO();
+        staff.setStaffId(staffId);
+        staff.setStaffPhone(staffPhone);
+
+        if (staffService.modifyStaffPhone(staff)) {
+            printResult.printSuccessMessage("update1");
+        } else {
+            printResult.printErrorMessage("update1");
+        }
+
+    }
+
+    public void modifyStaffRank(Map<String, String> parameter) {
+
+        String staffId = parameter.get("staffId");
+        String staffRank = parameter.get("staffRank");
+
+        StaffDTO staff = new StaffDTO();
+        staff.setStaffId(staffId);
+        staff.setStaffRank(staffRank);
+
+        if (staffService.modifyStaffRank(staff)) {
+            printResult.printSuccessMessage("update1");
+        } else {
+            printResult.printErrorMessage("update1");
+        }
+
+    }
+
+    public void modifyStaffRideCode(Map<String, String> parameter) {
+
+        String staffId = parameter.get("staffId");
+        String staffRideCode = parameter.get("staffRideCode");
+
+        StaffDTO staff = new StaffDTO();
+        staff.setStaffId(staffId);
+        staff.setRideCode(staffRideCode);
+
+        if (staffService.modifyStaffRideCode(staff)) {
+            printResult.printSuccessMessage("update1");
+        } else {
+            printResult.printErrorMessage("update1");
+        }
+
+    }
+
+    public void modifyStaffLogCount(Map<String, String> parameter) {
+
+        String staffId = parameter.get("staffId");
+        int staffLogCount = Integer.parseInt(parameter.get("staffLogCount"));
+
+        StaffDTO staff = new StaffDTO();
+        staff.setStaffId(staffId);
+        staff.setLogCount(staffLogCount);
+
+        if (staffService.modifyStaffLogCount(staff)) {
+            printResult.printSuccessMessage("update1");
+        } else {
+            printResult.printErrorMessage("update1");
+        }
+
     }
 
     public void deleteStaff(Map<String, String> parameter) {
