@@ -94,4 +94,22 @@ public class ConsumerService {
 
         return result > 0 ? true : false;
     }
+
+    public boolean modifyConsumerByStaff(ConsumerDTO consumer) {
+        SqlSession sqlSession = getSqlSession();
+
+        consumerMapper = sqlSession.getMapper(ConsumerMapper.class);
+
+        int result = consumerMapper.modifyConsumerByStaff(consumer);
+
+        if (result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+    }
 }

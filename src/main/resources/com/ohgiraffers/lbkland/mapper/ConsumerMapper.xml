@@ -56,4 +56,13 @@
         where consumer_id = #{ consumerId }
     </delete>
 
+    <update id="modifyConsumerByStaff" parameterType="com.ohgiraffers.lbkland.dto.ConsumerDTO">
+        update consumer
+        set
+        consumer_pw = #{ consumerPw },
+        consumer_name = #{ consumerName },
+        consumer_rank = #{ consumerRank }
+        where
+        consumer_id = #{ consumerId }
+    </update>
 </mapper>
