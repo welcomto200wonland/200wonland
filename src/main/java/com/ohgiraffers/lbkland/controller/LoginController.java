@@ -64,12 +64,18 @@ public class LoginController {
         consumer.setConsumerId(consumerId);
         consumer.setConsumerPw(consumerPw);
 
-        if (loginService.tryVipLogin(consumer)) {
+        //Map<key 값, values 값>
+        Map<String, Boolean> result = loginService.tryVipLogin(consumer);
+
+        Boolean loginResult = result.get("loginResult");
+        Boolean isVIP = result.get("isVIP");
+
+        if (loginResult && isVIP) {
+            System.out.println("VIP 고객님 환영합니다.");
             app.vipLogin();
         } else {
-            System.out.println("다시 로그인해주세요.");
+            System.out.println("VIP가 아닙니다. 다시 로그인해주세요.");
         }
-
 
     }
 }

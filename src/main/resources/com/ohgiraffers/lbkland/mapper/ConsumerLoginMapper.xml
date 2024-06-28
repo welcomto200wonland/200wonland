@@ -8,6 +8,7 @@
     <resultMap id="consumerLoginResultMap" type="com.ohgiraffers.lbkland.dto.ConsumerDTO">
         <id property="consumerId" column="consumer_id"/>
         <result property="consumerPw" column="consumer_pw"/>
+        <result property="consumerRank" column="consumer_rank"/>
     </resultMap>
 
     <select id="findConsumerById" parameterType="String" resultMap="consumerLoginResultMap">

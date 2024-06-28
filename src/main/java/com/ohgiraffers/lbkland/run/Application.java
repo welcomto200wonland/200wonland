@@ -42,8 +42,6 @@ public class Application {
 
     }
 
-
-
     // 로그인 기능
     private static void staffLoginMain() {
         LoginController loginController= new LoginController();
@@ -61,7 +59,7 @@ public class Application {
         loginController.tryVipLogin(inputVipIdPw());
     }
 
-    // VIP ID&PW 입력
+    // ID & PW 입력
     private static Map<String, String> inputVipIdPw() {
         Scanner sc = new Scanner(System.in);
         System.out.println("회원 ID를 입력하세요 : ");
@@ -137,7 +135,7 @@ public class Application {
         return parameter;
     }
 
-    // 로그인 후 VIP 사용 가능한 기능 main 페이지
+    // 로그인 후 사용 가능한 기능 main 페이지
     public void vipLogin() {
         Scanner sc = new Scanner(System.in);
         RideController rideController = new RideController();
@@ -154,28 +152,16 @@ public class Application {
             int no = sc.nextInt();
 
             switch (no) {
-                case 1:
-                    rideController.selectAllRide();
-                    break;
-                case 2:
-                    rideController.selectRideByCode(inputRideCode1());
-                    break;
-                case 3:
-                    consumerController.selectConsumerById(inputConsumerCode());
-                    break;
-                case 4:
-                    consumerController.modifyConsumer(modifyConsumerByConsumer());
-                    break;
-                case 5:
-                    consumerController.delectConsumer(inputConsumerCode());
-                    break;
-                case 0:
-                    return;
+                case 1: rideController.selectAllRide(); break;
+                case 2: rideController.selectRideByCode(inputRideCode1()); break;
+                case 3: consumerController.selectConsumerById(inputConsumerCode()); break;
+                case 4: consumerController.modifyConsumer(modifyConsumerByConsumer()); break;
+                case 5: consumerController.delectConsumer(inputConsumerCode()); break;
+                case 0: return;
                 default:
                     System.out.println(" 잘못된 번호를 입력하셨습니다. ");
                     break;
             }
-
         } while (true);
     }
     public static void consumerLogin () {
@@ -544,7 +530,7 @@ public class Application {
 
     }
 
-    // 고객관리
+    // 고객관리 메뉴 및 기능
     private static void selectConsumer() {
 
         Scanner sc = new Scanner(System.in);
@@ -618,27 +604,6 @@ public class Application {
         parameter.put("consumerDate", consumerDate);
 
         return parameter;
-    }
-    private static Map<String,String> modifyConsumer() {
-
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("고객 ID를 입력하세요.");
-        String consumerId = sc.nextLine();
-
-        System.out.println("고객 비밀번호를 입력하세요.");
-        String consumerPw = sc.nextLine();
-
-        System.out.println("고객 이름을 입력하세요.");
-        String consumerName = sc.nextLine();
-
-        Map<String, String> parameter = new HashMap<>();
-        parameter.put("consumerId", consumerId);
-        parameter.put("consumerPw", consumerPw);
-        parameter.put("consumerName", consumerName);
-
-        return parameter;
-
     }
     private static Map<String,String> modifyConsumerByConsumer() {
 
