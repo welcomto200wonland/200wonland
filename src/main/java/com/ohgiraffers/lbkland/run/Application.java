@@ -22,11 +22,10 @@ public class Application {
 
         Scanner sc = new Scanner(System.in);
         do {
-            System.out.println("============IBK랜드 로그인========");
-            System.out.println("IBK랜드 사이트 입니다.");
+            System.out.println("============WELCOME TO LBK LAND========");
             System.out.println("1. 회원으로 로그인");
             System.out.println("2. 직원으로 로그인");
-            System.out.println("3. VIP으로 로그인");
+            System.out.println("3. VIP로 로그인");
             System.out.println("4. 신규회원 가입");
             System.out.println("0. 프로그램 종료");
             System.out.print("메뉴 번호를 입력해 주세요 : ");
@@ -297,7 +296,7 @@ public class Application {
     private static Map<String, String> inputStaffCode() {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("STAFF ID를 입력하세요 : ");
+        System.out.println("직원 ID를 입력하세요 : ");
         String staId = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();

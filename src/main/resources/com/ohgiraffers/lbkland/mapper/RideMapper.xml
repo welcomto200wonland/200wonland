@@ -41,7 +41,7 @@
     <update id="modifyRide" parameterType="com.ohgiraffers.lbkland.dto.RideDTO">
         update ride
         set
-        ride_code =#{rideId},
+        ride_code = #{rideId},
         ride_name = #{rideName},
         staff_id = #{staffId}
         where

@@ -7,7 +7,6 @@ import com.ohgiraffers.lbkland.mapper.StaffLoginMapper;
 import org.apache.ibatis.session.SqlSession;
 import static com.ohgiraffers.lbkland.common.Template.getSqlSession;
 
-
 public class LoginService {
     private ConsumerLoginMapper consumerLoginMapper;
     private StaffLoginMapper staffLoginMapper;
