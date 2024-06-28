@@ -18,4 +18,10 @@ public interface ConsumerMapper {
 
     int insertConsumer1(ConsumerDTO consumer);
     int modifyConsumerByStaff(ConsumerDTO consumer);
+
+    int modifyConsumerPwByConsumer(ConsumerDTO consumer);
+
+    int modifyConsumerNameByConsumer(ConsumerDTO consumer);
+
+    int modifyConsumerphoneByConsumer(ConsumerDTO consumer);
 }

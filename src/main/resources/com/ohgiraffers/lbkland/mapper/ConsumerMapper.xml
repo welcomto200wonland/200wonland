@@ -82,4 +82,28 @@
         where
         consumer_id = #{ consumerId }
     </update>
+
+    <update id="modifyConsumerPwByConsumer" parameterType="com.ohgiraffers.lbkland.dto.ConsumerDTO">
+        update consumer
+        set
+        consumer_pw = #{consumerPw}
+        where
+        consumer_id =#{consumerId}
+    </update>
+
+    <update id="modifyConsumerNameByConsumer" parameterType="com.ohgiraffers.lbkland.dto.ConsumerDTO">
+        update consumer
+        set
+        consumer_name = #{consumerName}
+        where
+        consumer_id = #{consumerId}
+    </update>
+
+    <update id="modifyConsumerphoneByConsumer" parameterType="com.ohgiraffers.lbkland.dto.ConsumerDTO">
+        update consumer
+        set
+        consumer_phone = #{consumerPhone}
+        where
+        consumer_id = #{consumerId}
+    </update>
 </mapper>

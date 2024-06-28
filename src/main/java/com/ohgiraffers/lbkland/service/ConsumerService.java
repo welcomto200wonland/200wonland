@@ -130,4 +130,58 @@ public class ConsumerService {
 
         return result > 0 ? true : false;
     }
+
+    public boolean modifyConsumerPwByConsumer(ConsumerDTO consumer) {
+        SqlSession sqlSession = getSqlSession();
+
+        consumerMapper = sqlSession.getMapper(ConsumerMapper.class);
+
+        int result = consumerMapper.modifyConsumerPwByConsumer(consumer);
+
+        if (result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+    }
+
+    public boolean modifyConsumerNameByConsumer(ConsumerDTO consumer) {
+        SqlSession sqlSession = getSqlSession();
+
+        consumerMapper = sqlSession.getMapper(ConsumerMapper.class);
+
+        int result = consumerMapper.modifyConsumerNameByConsumer(consumer);
+
+        if (result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+    }
+
+    public boolean modifyConsumerphoneByConsumer(ConsumerDTO consumer) {
+        SqlSession sqlSession = getSqlSession();
+
+        consumerMapper = sqlSession.getMapper(ConsumerMapper.class);
+
+        int result = consumerMapper.modifyConsumerphoneByConsumer(consumer);
+
+        if (result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+    }
 }
