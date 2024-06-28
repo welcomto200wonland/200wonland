@@ -31,12 +31,21 @@ public class Application {
             System.out.print("메뉴 번호를 입력해 주세요 : ");
 
             int no = sc.nextInt();
-            switch (no){
-                case 1: consumerLoginMain(); break;
-                case 2: staffLoginMain(); break;
-                case 3: vipLoginMain(); break;
-                case 4: consumerController.newMemberSignUp(inputConsumerSignUp()); break;
-                case 0: return;
+            switch (no) {
+                case 1:
+                    consumerLoginMain();
+                    break;
+                case 2:
+                    staffLoginMain();
+                    break;
+                case 3:
+                    vipLoginMain();
+                    break;
+                case 4:
+                    consumerController.newMemberSignUp(inputConsumerSignUp());
+                    break;
+                case 0:
+                    return;
             }
         } while (true);
 
@@ -48,13 +57,11 @@ public class Application {
         System.out.println("직원 로그인 페이지 입니다.");
         loginController.tryStaffLogin(inputStaffIdPw());
     }
-
     public static void consumerLoginMain() {
         LoginController loginController = new LoginController();
         System.out.println("회원 로그인 페이지 입니다.");
         loginController.tryConsumerLogin(inputConsumerIdPw());
     }
-
     private static void vipLoginMain() {
         LoginController loginController = new LoginController();
         System.out.println("VIP 로그인 페이지 입니다.");
@@ -76,10 +83,8 @@ public class Application {
 
         return parameter;
     }
-
     private static Map<String, String> inputStaffIdPw() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("직원 로그인 페이지입니다.");
         System.out.println("ID를 입력하세요 : ");
         String staffId = sc.nextLine();
 
@@ -93,7 +98,6 @@ public class Application {
         return parameter;
 
     }
-
     private static Map<String, String> inputConsumerSignUp() {
 
         Scanner sc = new Scanner(System.in);
@@ -123,7 +127,6 @@ public class Application {
         return parameter;
 
     }
-
     private static Map<String, String> inputConsumerIdPw() {
         Scanner sc = new Scanner(System.in);
         System.out.println("회원 로그인 페이지입니다.");
@@ -157,19 +160,29 @@ public class Application {
             int no = sc.nextInt();
 
             switch (no) {
-                case 1: rideController.selectAllRide(); break;
-                case 2: rideController.selectRideByCode(inputRideCode1()); break;
-                case 3: consumerController.selectConsumerById(inputConsumerCode()); break;
-                case 4: consumerController.modifyConsumer(modifyConsumerByConsumer()); break;
-                case 5: consumerController.delectConsumer(inputConsumerCode()); break;
-                case 0: return;
+                case 1:
+                    rideController.selectAllRide();
+                    break;
+                case 2:
+                    rideController.selectRideByCode(inputRideCode1());
+                    break;
+                case 3:
+                    consumerController.selectConsumerById(inputConsumerCode());
+                    break;
+                case 4:
+                    consumerController.modifyConsumer(modifyConsumerByConsumer());
+                    break;
+                case 5:
+                    consumerController.delectConsumer(inputConsumerCode());
+                    break;
+                case 0:
+                    return;
                 default:
                     System.out.println(" 잘못된 번호를 입력하셨습니다. ");
                     break;
             }
         } while (true);
     }
-
     public static void consumerLogin() {
         Scanner sc = new Scanner(System.in);
         RideController rideController = new RideController();
@@ -211,7 +224,6 @@ public class Application {
 
         } while (true);
     }
-
     public static void staffLogin() {
 
         Scanner sc = new Scanner(System.in);
@@ -227,11 +239,20 @@ public class Application {
             int no = sc.nextInt();
 
             switch (no) {
-                case 1: staffManagementSubMenu(); break;
-                case 2: selectRide(); break;
-                case 3: selectLog(); break;
-                case 4: selectConsumer(); break;
-                case 0: return;
+                case 1:
+                    staffManagementSubMenu();
+                    break;
+                case 2:
+                    selectRide();
+                    break;
+                case 3:
+                    selectLog();
+                    break;
+                case 4:
+                    selectConsumer();
+                    break;
+                case 0:
+                    return;
                 default:
                     System.out.println(" 잘못된 번호를 입력하셨습니다. ");
                     break;
@@ -262,20 +283,32 @@ public class Application {
             int no = sc.nextInt();
 
             switch (no) {
-                case 1 : logController.selectAllLog(); break;
-                case 2 : logController.selectLogByCode(inputLogCode()); break;
-                case 3 : logController.selectLogByStaffId(inputStaffCode()); break;
-                case 4 : logController.registerLog(registerLog()); break;
-                case 5 : logController.modifyLog(inputModifyLog()); break;
-                case 6 : logController.deleteLog(inputLogCode()); break;
-                case 0 : return;
+                case 1:
+                    logController.selectAllLog();
+                    break;
+                case 2:
+                    logController.selectLogByCode(inputLogCode());
+                    break;
+                case 3:
+                    logController.selectLogByStaffId(inputStaffCode());
+                    break;
+                case 4:
+                    logController.registerLog(registerLog());
+                    break;
+                case 5:
+                    logController.modifyLog(inputModifyLog());
+                    break;
+                case 6:
+                    logController.deleteLog(inputLogCode());
+                    break;
+                case 0:
+                    return;
                 default:
                     System.out.println("잘못된 메뉴를 선택하셨습니다.");
                     break;
             }
         } while (true);
     }
-
     private static Map<String, String> inputLogCode() {
 
         Scanner sc = new Scanner(System.in);
@@ -288,7 +321,6 @@ public class Application {
         return parameter;
 
     }
-
     private static Map<String, String> inputStaffCode() {
 
         Scanner sc = new Scanner(System.in);
@@ -301,7 +333,6 @@ public class Application {
         return parameter;
 
     }
-
     private static Map<String, String> registerLog() {
 
         Scanner sc = new Scanner(System.in);
@@ -375,16 +406,27 @@ public class Application {
             int no = sc.nextInt();
 
             switch (no) {
-                case 1: rideController.selectAllRide(); break;
-                case 2: rideController.selectRideByCode(inputRideCode1()); break;
-                case 3: rideController.registRide(inputRide()); break;
-                case 4: rideController.modifyRide(inputModifyRide()); break;
-                case 5: rideController.deleteRide(inputRideCode1()); break;
-                case 0: return;
+                case 1:
+                    rideController.selectAllRide();
+                    break;
+                case 2:
+                    rideController.selectRideByCode(inputRideCode1());
+                    break;
+                case 3:
+                    rideController.registRide(inputRide());
+                    break;
+                case 4:
+                    rideController.modifyRide(inputModifyRide());
+                    break;
+                case 5:
+                    rideController.deleteRide(inputRideCode1());
+                    break;
+                case 0:
+                    return;
             }
         } while (true);
     }
-    public static Map<String,String> inputRideCode1() {
+    public static Map<String, String> inputRideCode1() {
         Scanner sc = new Scanner(System.in);
         System.out.println("놀이기구 코드를 입력하세요 : ");
         String rideId = sc.nextLine();
@@ -392,7 +434,6 @@ public class Application {
         parameter.put("rideId", rideId);
         return parameter;
     }
-
     private static Map<String, String> inputRide() {
         Scanner sc = new Scanner(System.in);
         System.out.println("놀이기구 코드를 입력하세요.");
@@ -410,7 +451,6 @@ public class Application {
         return parameter;
 
     }
-
     private static Map<String, String> inputModifyRide() {
         Scanner sc = new Scanner(System.in);
 
@@ -622,19 +662,17 @@ public class Application {
         return parameter;
 
     }
+    private static Map<String, String> inputStaffId() {
 
-    private static Map<String, String> inputStaffId () {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("직원의 ID를 입력해 주세요 : ");
+        String staffId = sc.nextLine();
 
-            Scanner sc = new Scanner(System.in);
-            System.out.print("직원의 ID를 입력해 주세요 : ");
-            String staffId = sc.nextLine();
-
-            Map<String, String> parameter = new HashMap<>();
-            parameter.put("staffId", staffId);
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("staffId", staffId);
 
         return parameter;
     }
-
     private static Map<String, String> inputRideCode() {
 
         Scanner sc = new Scanner(System.in);
@@ -646,35 +684,33 @@ public class Application {
 
         return parameter;
     }
-
     private static Map<String, String> inputStaff() {
 
         Scanner sc = new Scanner(System.in);
 
-            System.out.print("직원의 ID를 입력하세요 : ");
-            String staffId = sc.nextLine();
-            System.out.print("직원의 설정할 패스워드를 입력하세요 : ");
-            String staffPassword = sc.nextLine();
-            System.out.print("직원의 이름을 입력하세요 : ");
-            String staffName = sc.nextLine();
-            System.out.print("직원의 핸드폰번호를 입력하세요(-포함) : ");
-            String staffPhone = sc.nextLine();
-            System.out.print("직원의 직급을 입력하세요 : ");
-            String staffRank = sc.nextLine();
-            System.out.print("직원이 담당하고 있는 놀이기구의 코드를 입력하세요 : ");
-            String rideCode = sc.nextLine();
+        System.out.print("직원의 ID를 입력하세요 : ");
+        String staffId = sc.nextLine();
+        System.out.print("직원의 설정할 패스워드를 입력하세요 : ");
+        String staffPassword = sc.nextLine();
+        System.out.print("직원의 이름을 입력하세요 : ");
+        String staffName = sc.nextLine();
+        System.out.print("직원의 핸드폰번호를 입력하세요(-포함) : ");
+        String staffPhone = sc.nextLine();
+        System.out.print("직원의 직급을 입력하세요 : ");
+        String staffRank = sc.nextLine();
+        System.out.print("직원이 담당하고 있는 놀이기구의 코드를 입력하세요 : ");
+        String rideCode = sc.nextLine();
 
-            Map<String, String> parameter = new HashMap<>();
-            parameter.put("staffId", staffId);
-            parameter.put("staffPhone", staffPhone);
-            parameter.put("staffRank", staffRank);
-            parameter.put("rideCode", rideCode);
-            parameter.put("staffName", staffName);
-            parameter.put("staffPassword", staffPassword);
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("staffId", staffId);
+        parameter.put("staffPhone", staffPhone);
+        parameter.put("staffRank", staffRank);
+        parameter.put("rideCode", rideCode);
+        parameter.put("staffName", staffName);
+        parameter.put("staffPassword", staffPassword);
 
-            return parameter;
-        }
-
+        return parameter;
+    }
 //        private static Map<String, String> inputModifyStaff () {
 //
 //            Scanner sc = new Scanner(System.in);
@@ -708,9 +744,7 @@ public class Application {
 //        }
 
     // 고객관리 메뉴 및 기능
-
     private static void selectConsumer() {
-
         Scanner sc = new Scanner(System.in);
 
         ConsumerController consumerController = new ConsumerController();
@@ -738,7 +772,7 @@ public class Application {
                     consumerController.registerConsumer(registerConsumer());
                     break;
                 case 4:
-                    consumerController.modifyConsumerByStaff(modifyConsumerByStaff());
+                    modifyConsumerMenu();
                     break;
                 case 5:
                     consumerController.delectConsumer(inputConsumerCode());
@@ -751,7 +785,6 @@ public class Application {
             }
         } while (true);
     }
-
     private static Map<String, String> inputConsumerCode() {
 
         Scanner sc = new Scanner(System.in);
@@ -765,7 +798,6 @@ public class Application {
 
 
     }
-
     private static Map<String, String> registerConsumer() {
         Scanner sc = new Scanner(System.in);
         System.out.println("등록할 고객 ID를 입력하세요 : ");
@@ -796,7 +828,6 @@ public class Application {
 
         return parameter;
     }
-
     private static Map<String, String> modifyConsumerByConsumer() {
 
         Scanner sc = new Scanner(System.in);
@@ -848,7 +879,6 @@ public class Application {
 
     }
 
-
     // 수정 세분화 메소드 - 회원이 회원 정보 수정
     private static void selectModifyConsumer() {
         Scanner sc = new Scanner(System.in);
@@ -884,8 +914,7 @@ public class Application {
             }
         } while (true);
     }
-
-    private static Map<String,String> inputConsumerPw() {
+    private static Map<String, String> inputConsumerPw() {
         Scanner sc = new Scanner(System.in);
         System.out.println("비밀번호 변경을 위해 아이디를 입력해주세요");
         String consumerId = sc.nextLine();
@@ -899,7 +928,7 @@ public class Application {
         return parameter;
 
     }
-    private static Map<String,String> inputConsumerName() {
+    private static Map<String, String> inputConsumerName() {
         Scanner sc = new Scanner(System.in);
         System.out.println("아이디를 입력해주세요");
         String consumerId = sc.nextLine();
@@ -913,7 +942,7 @@ public class Application {
         return parameter;
 
     }
-    private static Map<String,String> inputConsumerphone() {
+    private static Map<String, String> inputConsumerphone() {
         Scanner sc = new Scanner(System.in);
         System.out.println("아이디를 입력해주세요");
         String consumerId = sc.nextLine();
@@ -927,7 +956,6 @@ public class Application {
         return parameter;
 
     }
-
     private static void modifyConsumerMenu() {
         Scanner sc = new Scanner(System.in);
 
@@ -946,12 +974,23 @@ public class Application {
             int no = sc.nextInt();
 
             switch (no) {
-                case 1 : consumerController.modifyConsumerByPw(modifyConsumerByPw()); break;
-                case 2 : consumerController.modifyConsumerByName(modifyConsumerByName()); break;
-                case 3 : consumerController.modifyConsumerByRank(modifyConsumerByRank()); break;
-                case 4 : consumerController.modifyConsumerByPhone(modifyConsumerByPhone()); break;
-                case 5 : consumerController.modifyConsumerByStaff(modifyConsumerByStaff()); break;
-                case 0 : return;
+                case 1:
+                    consumerController.modifyConsumerByPw(modifyConsumerByPw());
+                    break;
+                case 2:
+                    consumerController.modifyConsumerByName(modifyConsumerByName());
+                    break;
+                case 3:
+                    consumerController.modifyConsumerByRank(modifyConsumerByRank());
+                    break;
+                case 4:
+                    consumerController.modifyConsumerByPhone(modifyConsumerByPhone());
+                    break;
+                case 5:
+                    consumerController.modifyConsumerByStaff(modifyConsumerByStaff());
+                    break;
+                case 0:
+                    return;
                 default:
                     System.out.println("잘못된 메뉴를 선택하셨습니다.");
                     break;
@@ -968,7 +1007,7 @@ public class Application {
         System.out.println("변경할 고객 PW를 입력하세요 : ");
         String consumerPw = sc.nextLine();
 
-        Map<String,String> parameter = new HashMap<>();
+        Map<String, String> parameter = new HashMap<>();
         parameter.put("consumerId", consumerId);
         parameter.put("consumerPw", consumerPw);
 
@@ -982,7 +1021,7 @@ public class Application {
         System.out.println("변경할 고객 이름을 입력하세요 : ");
         String consumerName = sc.nextLine();
 
-        Map<String,String> parameter = new HashMap<>();
+        Map<String, String> parameter = new HashMap<>();
         parameter.put("consumerId", consumerId);
         parameter.put("consumerName", consumerName);
 
@@ -996,7 +1035,7 @@ public class Application {
         System.out.println("변경할 고객 전화번호를 입력하세요 : ");
         String consumerPhone = sc.nextLine();
 
-        Map<String,String> parameter = new HashMap<>();
+        Map<String, String> parameter = new HashMap<>();
         parameter.put("consumerId", consumerId);
         parameter.put("consumerPhone", consumerPhone);
 
@@ -1010,7 +1049,7 @@ public class Application {
         System.out.println("변경할 고객 등급을 입력하세요 : ");
         String consumerRank = sc.nextLine();
 
-        Map<String,String> parameter = new HashMap<>();
+        Map<String, String> parameter = new HashMap<>();
         parameter.put("consumerId", consumerId);
         parameter.put("consumerRank", consumerRank);
 
@@ -1018,7 +1057,6 @@ public class Application {
 
     }
 }
-
 
 
 
