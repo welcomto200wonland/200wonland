@@ -19,7 +19,6 @@ public class Application {
 
         Application app = new Application();
         ConsumerController consumerController = new ConsumerController();
-        LoginController loginController = new LoginController();
 
         Scanner sc = new Scanner(System.in);
         do {
