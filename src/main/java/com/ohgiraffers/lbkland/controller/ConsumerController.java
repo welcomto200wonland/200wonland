@@ -57,7 +57,7 @@ public class ConsumerController {
 
     // ID로 고객 조회
     public void selectConsumerById(Map<String, String> parameter) {
-        String id = parameter.get("get");
+        String id = parameter.get("id");
 
         ConsumerDTO consumer = consumerService.selectConsumerById(id);
 
@@ -117,6 +117,28 @@ public class ConsumerController {
             printResult.printSuccessMessage("delete");
         } else {
             printResult.printErrorMessage("delete");
+        }
+    }
+
+    public void modifyConsumerByStaff(Map<String, String> parameter) {
+        String consumerId = parameter.get("consumerId");
+        String consumerPw = parameter.get("consumerPw");
+        String consumerName = parameter.get("consumerName");
+        String consumerRank = parameter.get("consumerRank");
+
+
+
+        ConsumerDTO consumer = new ConsumerDTO();
+        consumer.setConsumerId(consumerId);
+        consumer.setConsumerPw(consumerPw);
+        consumer.setConsumerName(consumerName);
+        consumer.setConsumerRank(consumerRank);
+
+
+        if (consumerService.modifyConsumerByStaff(consumer)) {
+            printResult.printSuccessMessage("update");
+        } else {
+            printResult.printErrorMessage("update");
         }
     }
 }
