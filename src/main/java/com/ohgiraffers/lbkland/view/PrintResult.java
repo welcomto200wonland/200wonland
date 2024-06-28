@@ -31,6 +31,9 @@ public class PrintResult {
             case "insert":
                 successMessage = "insert에 성공했습니다.";
                 break;
+            case "SignUp" :
+                successMessage = "신규 회원가입에 성공했습니다.";
+                break;
             case "update":
                 successMessage = "update에 성공했습니다.";
                 break;
@@ -53,6 +56,9 @@ public class PrintResult {
                 break;
             case "insert":
                 errorMessage = "insert에 실패했습니다.";
+                break;
+            case "SignUp" :
+                errorMessage = "신규 회원가입에 실패했습니다.";
                 break;
             case "update":
                 errorMessage = "update에 실패했습니다.";

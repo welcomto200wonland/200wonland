@@ -41,6 +41,22 @@
         )
     </insert>
 
+    <insert id="insertConsumer1" parameterType="com.ohgiraffers.lbkland.dto.ConsumerDTO">
+        insert into consumer(
+        consumer_id,
+        consumer_pw,
+        consumer_name,
+        consumer_phone,
+        consumer_date
+        ) values (
+        #{ consumerId },
+        #{ consumerPw },
+        #{ consumerName },
+        #{ consumerPhone },
+        #{ consumerDate }
+        )
+    </insert>
+
     <update id="modifyConsumer" parameterType="com.ohgiraffers.lbkland.dto.ConsumerDTO">
         update consumer
         set
@@ -56,4 +72,13 @@
         where consumer_id = #{ consumerId }
     </delete>
 
+    <update id="modifyConsumerByStaff" parameterType="com.ohgiraffers.lbkland.dto.ConsumerDTO">
+        update consumer
+        set
+        consumer_pw = #{ consumerPw },
+        consumer_name = #{ consumerName },
+        consumer_rank = #{ consumerRank }
+        where
+        consumer_id = #{ consumerId }
+    </update>
 </mapper>

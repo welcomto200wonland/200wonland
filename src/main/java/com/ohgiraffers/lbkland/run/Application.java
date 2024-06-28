@@ -18,6 +18,7 @@ public class Application {
     public static void main(String[] args) {
 
         Application app = new Application();
+        ConsumerController consumerController = new ConsumerController();
 
         Scanner sc = new Scanner(System.in);
 do {
@@ -26,6 +27,7 @@ do {
     System.out.println("1. 회원으로 로그인");
     System.out.println("2. 직원으로 로그인");
     System.out.println("3. VIP로 로그인");
+    System.out.println("4. 신규회원 가입");
     System.out.println("0. 프로그램 종료");
     System.out.print("메뉴 번호를 입력해 주세요 : ");
 
@@ -34,6 +36,7 @@ do {
         case 1: consumerLoginMain(); break;
         case 2: staffLoginMain(); break;
         case 3: vipLoginMain(); break;
+        case 4: consumerController.newMemberSignUp(inputConsumerSignUp()); break;
         case 0: return;
         default:
             System.out.println(" 잘못된 번호를 입력하셨습니다. ");
@@ -69,7 +72,7 @@ do {
     public void vipLogin() {
         Scanner sc = new Scanner(System.in);
         RideController rideController = new RideController();
-
+        ConsumerController consumerController = new ConsumerController();
         do {
             System.out.println("============ VIP 메뉴 ========");
             System.out.println("1. 놀이기구 전체 조회");
@@ -89,10 +92,13 @@ do {
                     rideController.selectRideByCode(inputRideCode1());
                     break;
                 case 3:
+                    consumerController.selectConsumerById(inputConsumerCode());
                     break;
                 case 4:
+                    consumerController.modifyConsumer(modifyConsumerByConsumer());
                     break;
                 case 5:
+                    consumerController.delectConsumer(inputConsumerCode());
                     break;
                 case 0:
                     return;
@@ -216,7 +222,6 @@ do {
                     System.out.println(" 잘못된 번호를 입력하셨습니다. ");
                     break;
             }
-
         } while (true);
     }
 
@@ -227,6 +232,13 @@ do {
 
         ConsumerController consumerController = new ConsumerController();
 
+        return parameter;
+    }
+
+    // 놀이기구 메뉴 및 기능
+    public static void selectRide(){
+        Scanner sc = new Scanner(System.in);
+        RideController rideController = new RideController();
         do {
             System.out.println("=============== 점검일지 관리 시스템 ===============");
             System.out.println("1. 전체 고객 명단 조회하기");
@@ -265,8 +277,6 @@ do {
         parameter.put("id", id);
 
         return parameter;
-
-
     }
 
     private static Map<String, String> registerConsumer() {
@@ -348,7 +358,7 @@ do {
                 case 4: staffController.registStaff(inputStaff()); break;
                 case 5: staffController.modifyStaff(inputModifyStaff()); break;
                 case 6: staffController.deleteStaff(inputStaffId()); break;
-                case 7:
+                case 7: selectConsumer();break;
                 case 0: return;
             }
         } while (true);
@@ -366,7 +376,6 @@ do {
         parameter.put("staId", staId);
 
         return parameter;
-
     }
 
     private static Map<String, String> inputStaff() {
@@ -589,7 +598,6 @@ do {
         parameter.put("staffId", staffId);
 
         return parameter;
-
     }
 
     private static Map<String, String> inputModifyLog() {
@@ -633,15 +641,13 @@ do {
         System.out.println("고객 등급을 입력하세요.");
         String consumerRank = sc.nextLine();
 
-        System.out.println("수정할 담당 직원을 입력하세요.");
-        String consumerDate = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
         parameter.put("consumerId", consumerId);
         parameter.put("consumerPw", consumerPw);
         parameter.put("consumerName", consumerName);
         parameter.put("consumerRank", consumerRank);
-        parameter.put("consumerDate", consumerDate);
+
 
         return parameter;
 

@@ -55,6 +55,24 @@ public class ConsumerService {
         return result > 0 ? true : false;
     }
 
+    public boolean registerConsumer1(ConsumerDTO consumer) {
+        SqlSession sqlSession = getSqlSession();
+
+        consumerMapper = sqlSession.getMapper(ConsumerMapper.class);
+
+        int result = consumerMapper.insertConsumer1(consumer);
+
+        if (result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+    }
+
     public boolean modifyConsumer(ConsumerDTO consumer) {
 
         SqlSession sqlSession = getSqlSession();
@@ -83,6 +101,24 @@ public class ConsumerService {
         consumerMapper = sqlSession.getMapper(ConsumerMapper.class);
 
         int result = consumerMapper.deleteConsumer(id);
+
+        if (result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+    }
+
+    public boolean modifyConsumerByStaff(ConsumerDTO consumer) {
+        SqlSession sqlSession = getSqlSession();
+
+        consumerMapper = sqlSession.getMapper(ConsumerMapper.class);
+
+        int result = consumerMapper.modifyConsumerByStaff(consumer);
 
         if (result > 0) {
             sqlSession.commit();
