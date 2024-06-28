@@ -18,6 +18,7 @@ public class Application {
     public static void main(String[] args) {
 
         Application app = new Application();
+        ConsumerController consumerController = new ConsumerController();
 
         Scanner sc = new Scanner(System.in);
 do {
@@ -25,6 +26,7 @@ do {
     System.out.println("IBK랜드 사이트 입니다.");
     System.out.println("1. 회원으로 로그인");
     System.out.println("2. 직원으로 로그인");
+    System.out.println("4. 신규회원 가입");
     System.out.println("0. 프로그램 종료");
     System.out.print("메뉴 번호를 입력해 주세요 : ");
 
@@ -32,11 +34,42 @@ do {
     switch (no){
         case 1: consumerLoginMain(); break;
         case 2: staffLoginMain(); break;
+        case 4: consumerController.newMemberSignUp(inputConsumerSignUp()); break;
         case 0: return;
     }
 } while(true);
 
 }
+
+    private static Map<String, String> inputConsumerSignUp() {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("사용하실 ID를 입력해주세요 : ");
+        String consumerId = sc.nextLine();
+
+        System.out.println("사용하실 PASSWORD를 입력해주세요 : ");
+        String consumerPw = sc.nextLine();
+
+        System.out.println("이름을 입력해주세요 : ");
+        String consumerName = sc.nextLine();
+
+        System.out.println("전화번호를 입력해주세요(-포함) : ");
+        String consumerPhone = sc.nextLine();
+
+        System.out.println("가입 날짜를 입력해주세요(오늘 날짜로 입력해주세요, YYYY-MM-DD) : ");
+        String consumerDate = sc.nextLine();
+
+        Map<String, String> parameter = new HashMap<>();
+        parameter.put("consumerId", consumerId);
+        parameter.put("consumerPw", consumerPw);
+        parameter.put("consumerName", consumerName);
+        parameter.put("consumerPhone", consumerPhone);
+        parameter.put("consumerDate", consumerDate);
+
+        return parameter;
+
+    }
 
 
 // 로그인 기능
@@ -470,7 +503,7 @@ do {
         ConsumerController consumerController = new ConsumerController();
 
         do {
-            System.out.println("=============== 고객 관리 시스템 ===============");
+            System.out.println("=============== 고객정보 관리 시스템 ===============");
             System.out.println("1. 전체 고객 명단 조회하기");
             System.out.println("2. 고객 ID로 조회하기");
             System.out.println("3. 고객 추가하기");

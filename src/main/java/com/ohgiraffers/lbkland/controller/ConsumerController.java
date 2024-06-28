@@ -21,6 +21,29 @@ public class ConsumerController {
         consumerService = new ConsumerService();
     }
 
+    public void newMemberSignUp(Map<String, String> parameter) {
+
+        String consumerId = parameter.get("consumerId");
+        String consumerPw = parameter.get("consumerPw");
+        String consumerName = parameter.get("consumerName");
+        String consumerPhone = parameter.get("consumerPhone");
+        String consumerDate = parameter.get("consumerDate");
+
+        ConsumerDTO consumer = new ConsumerDTO();
+        consumer.setConsumerId(consumerId);
+        consumer.setConsumerPw(consumerPw);
+        consumer.setConsumerName(consumerName);
+        consumer.setConsumerPhone(consumerPhone);
+        consumer.setConsumerDate(consumerDate);
+
+        if (consumerService.registerConsumer1(consumer)) {
+            printResult.printSuccessMessage("SignUp");
+        } else {
+            printResult.printErrorMessage("SignUp");
+        }
+
+    }
+
     // 전체 고객 조회
     public void selectAllConsumer() {
         List<ConsumerDTO> consumerList = consumerService.selectAllconsumer();
