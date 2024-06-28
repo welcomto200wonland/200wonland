@@ -16,4 +16,5 @@ public interface ConsumerMapper {
 
     int deleteConsumer(String id);
 
+    int insertConsumer1(ConsumerDTO consumer);
 }
