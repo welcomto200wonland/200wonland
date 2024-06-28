@@ -14,7 +14,19 @@ public interface StaffMapper {
 
     int registStaff(StaffDTO staff);
 
-    int modifyStaff(StaffDTO staff);
+//    int modifyStaff(StaffDTO staff);
 
     int deleteStaff(String staffId);
+
+    int modifyStaffPassword(StaffDTO staff);
+
+    int modifyStaffName(StaffDTO staff);
+
+    int modifyStaffPhone(StaffDTO staff);
+
+    int modifyStaffRank(StaffDTO staff);
+
+    int modifyStaffRideCode(StaffDTO staff);
+
+    int modifyStaffLogCount(StaffDTO staff);
 }

@@ -70,13 +70,32 @@ public class StaffService {
         return result > 0 ? true : false;
     }
 
-    public boolean modifyStaff(StaffDTO staff) {
+//    public boolean modifyStaff(StaffDTO staff) {
+//
+//        SqlSession sqlSession = getSqlSession();
+//
+//        staffMapper = sqlSession.getMapper(StaffMapper.class);
+//
+//        int result = staffMapper.modifyStaff(staff);
+//
+//        if(result > 0) {
+//            sqlSession.commit();
+//        } else {
+//            sqlSession.rollback();
+//        }
+//
+//        sqlSession.close();
+//
+//        return result > 0 ? true : false;
+//    }
+
+    public boolean deleteStaff(String staffId) {
 
         SqlSession sqlSession = getSqlSession();
 
         staffMapper = sqlSession.getMapper(StaffMapper.class);
 
-        int result = staffMapper.modifyStaff(staff);
+        int result = staffMapper.deleteStaff(staffId);
 
         if(result > 0) {
             sqlSession.commit();
@@ -89,13 +108,110 @@ public class StaffService {
         return result > 0 ? true : false;
     }
 
-    public boolean deleteStaff(String staffId) {
+    public boolean modifyStaffPassword(StaffDTO staff) {
 
         SqlSession sqlSession = getSqlSession();
 
         staffMapper = sqlSession.getMapper(StaffMapper.class);
 
-        int result = staffMapper.deleteStaff(staffId);
+        int result = staffMapper.modifyStaffPassword(staff);
+
+        if(result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+    }
+
+    public boolean modifyStaffName(StaffDTO staff) {
+
+        SqlSession sqlSession = getSqlSession();
+
+        staffMapper = sqlSession.getMapper(StaffMapper.class);
+
+        int result = staffMapper.modifyStaffName(staff);
+
+        if(result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+    }
+
+    public boolean modifyStaffPhone(StaffDTO staff) {
+
+        SqlSession sqlSession = getSqlSession();
+
+        staffMapper = sqlSession.getMapper(StaffMapper.class);
+
+        int result = staffMapper.modifyStaffPhone(staff);
+
+        if(result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+    }
+
+    public boolean modifyStaffRank(StaffDTO staff) {
+
+        SqlSession sqlSession = getSqlSession();
+
+        staffMapper = sqlSession.getMapper(StaffMapper.class);
+
+        int result = staffMapper.modifyStaffRank(staff);
+
+        if(result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+
+    }
+
+    public boolean modifyStaffRideCode(StaffDTO staff) {
+
+        SqlSession sqlSession = getSqlSession();
+
+        staffMapper = sqlSession.getMapper(StaffMapper.class);
+
+        int result = staffMapper.modifyStaffRideCode(staff);
+
+        if(result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+
+    }
+
+    public boolean modifyStaffLogCount(StaffDTO staff) {
+
+        SqlSession sqlSession = getSqlSession();
+
+        staffMapper = sqlSession.getMapper(StaffMapper.class);
+
+        int result = staffMapper.modifyStaffLogCount(staff);
 
         if(result > 0) {
             sqlSession.commit();
