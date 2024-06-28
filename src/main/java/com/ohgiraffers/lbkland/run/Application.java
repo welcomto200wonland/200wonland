@@ -605,27 +605,6 @@ public class Application {
 
         return parameter;
     }
-    private static Map<String,String> modifyConsumer() {
-
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("고객 ID를 입력하세요.");
-        String consumerId = sc.nextLine();
-
-        System.out.println("고객 비밀번호를 입력하세요.");
-        String consumerPw = sc.nextLine();
-
-        System.out.println("고객 이름을 입력하세요.");
-        String consumerName = sc.nextLine();
-
-        Map<String, String> parameter = new HashMap<>();
-        parameter.put("consumerId", consumerId);
-        parameter.put("consumerPw", consumerPw);
-        parameter.put("consumerName", consumerName);
-
-        return parameter;
-
-    }
     private static Map<String,String> modifyConsumerByConsumer() {
 
         Scanner sc = new Scanner(System.in);
