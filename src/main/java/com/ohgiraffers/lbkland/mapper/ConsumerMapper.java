@@ -17,7 +17,13 @@ public interface ConsumerMapper {
     int deleteConsumer(String id);
 
     int insertConsumer1(ConsumerDTO consumer);
+
+    // 스탭이 회원 수정하는 여러가지 회원 수정
     int modifyConsumerByStaff(ConsumerDTO consumer);
+    int modifyConsumerByPw(ConsumerDTO consumer);
+    int modifyConsumerByName(ConsumerDTO consumer);
+    int modifyConsumerByRank(ConsumerDTO consumer);
+    int modifyConsumerByPhone(ConsumerDTO consumer);
 
     int modifyConsumerPwByConsumer(ConsumerDTO consumer);
 

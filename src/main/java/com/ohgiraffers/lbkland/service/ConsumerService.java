@@ -131,6 +131,78 @@ public class ConsumerService {
         return result > 0 ? true : false;
     }
 
+    public boolean modifyConsumerByPw(ConsumerDTO consumer) {
+        SqlSession sqlSession = getSqlSession();
+
+        consumerMapper = sqlSession.getMapper(ConsumerMapper.class);
+
+        int result = consumerMapper.modifyConsumerByPw(consumer);
+
+        if (result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+    }
+
+    public boolean modifyConsumerByName(ConsumerDTO consumer) {
+        SqlSession sqlSession = getSqlSession();
+
+        consumerMapper = sqlSession.getMapper(ConsumerMapper.class);
+
+        int result = consumerMapper.modifyConsumerByName(consumer);
+
+        if (result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+    }
+
+    public boolean modifyConsumerByRank(ConsumerDTO consumer) {
+        SqlSession sqlSession = getSqlSession();
+
+        consumerMapper = sqlSession.getMapper(ConsumerMapper.class);
+
+        int result = consumerMapper.modifyConsumerByRank(consumer);
+
+        if (result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+    }
+
+    public boolean modifyConsumerByPhone(ConsumerDTO consumer) {
+        SqlSession sqlSession = getSqlSession();
+
+        consumerMapper = sqlSession.getMapper(ConsumerMapper.class);
+
+        int result = consumerMapper.modifyConsumerByPhone(consumer);
+
+        if (result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+    }
+
     public boolean modifyConsumerPwByConsumer(ConsumerDTO consumer) {
         SqlSession sqlSession = getSqlSession();
 

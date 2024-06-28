@@ -73,15 +73,67 @@
     </insert>
 
 
-    <update id="modifyStaff" parameterType="com.ohgiraffers.lbkland.dto.StaffDTO">
+<!--    <update id="modifyStaff" parameterType="com.ohgiraffers.lbkland.dto.StaffDTO">-->
+<!--        update staff-->
+<!--        set-->
+<!--        staff_phone = #{ staffPhone },-->
+<!--        staff_rank = #{ staffRank },-->
+<!--        ride_code = #{ rideCode },-->
+<!--        log_count = #{ logCount },-->
+<!--        staff_name = #{ staffName },-->
+<!--        staff_password = #{ staffPassword }-->
+<!--        where-->
+<!--        staff_id = #{ staffId }-->
+<!--    </update>-->
+
+
+    <update id="modifyStaffPassword" parameterType="com.ohgiraffers.lbkland.dto.StaffDTO">
         update staff
         set
-        staff_phone = #{ staffPhone },
-        staff_rank = #{ staffRank },
-        ride_code = #{ rideCode },
-        log_count = #{ logCount },
-        staff_name = #{ staffName },
         staff_password = #{ staffPassword }
+        where
+        staff_id = #{ staffId }
+    </update>
+
+    <update id="modifyStaffName" parameterType="com.ohgiraffers.lbkland.dto.StaffDTO">
+        update staff
+        set
+        staff_name = #{ staffName }
+        where
+        staff_id = #{ staffId }
+    </update>
+
+    <update id="modifyStaffPhone" parameterType="com.ohgiraffers.lbkland.dto.StaffDTO">
+        update staff
+        set
+        staff_phone = #{ staffPhone }
+        where
+        staff_id = #{ staffId }
+    </update>
+
+
+    <update id="modifyStaffRank" parameterType="com.ohgiraffers.lbkland.dto.StaffDTO">
+        update staff
+        set
+        staff_rank = #{ staffRank }
+        where
+        staff_id = #{ staffId }
+    </update>
+
+
+    <update id="modifyStaffRideCode" parameterType="com.ohgiraffers.lbkland.dto.StaffDTO">
+        update staff
+        set
+        ride_code = #{ rideCode }
+        where
+        staff_id = #{ staffId }
+    </update>
+
+
+    <update id="modifyStaffLogCount" parameterType="com.ohgiraffers.lbkland.dto.StaffDTO">
+        update staff
+        set
+        log_count = #{ logCount }
         where
         staff_id = #{ staffId }
     </update>

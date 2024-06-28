@@ -1,14 +1,11 @@
 package com.ohgiraffers.lbkland.controller;
 
 import com.ohgiraffers.lbkland.dto.ConsumerDTO;
-import com.ohgiraffers.lbkland.dto.LogDTO;
 import com.ohgiraffers.lbkland.service.ConsumerService;
 import com.ohgiraffers.lbkland.view.PrintResult;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 
 public class ConsumerController {
 
@@ -120,6 +117,7 @@ public class ConsumerController {
         }
     }
 
+    // 스탭이 직원 수정하는 기능
     public void modifyConsumerByStaff(Map<String, String> parameter) {
         String consumerId = parameter.get("consumerId");
         String consumerPw = parameter.get("consumerPw");
@@ -136,6 +134,62 @@ public class ConsumerController {
 
 
         if (consumerService.modifyConsumerByStaff(consumer)) {
+            printResult.printSuccessMessage("update");
+        } else {
+            printResult.printErrorMessage("update");
+        }
+    }
+    public void modifyConsumerByPw(Map<String, String> parameter) {
+        String consumerId = parameter.get("consumerId");
+        String consumerPw = parameter.get("consumerPw");
+
+        ConsumerDTO consumer = new ConsumerDTO();
+        consumer.setConsumerId(consumerId);
+        consumer.setConsumerPw(consumerPw);
+
+        if (consumerService.modifyConsumerByPw(consumer)) {
+            printResult.printSuccessMessage("update");
+        } else {
+            printResult.printErrorMessage("update");
+        }
+    }
+    public void modifyConsumerByName(Map<String, String> parameter) {
+        String consumerId = parameter.get("consumerId");
+        String consumerName = parameter.get("consumerName");
+
+        ConsumerDTO consumer = new ConsumerDTO();
+        consumer.setConsumerId(consumerId);
+        consumer.setConsumerName(consumerName);
+
+        if (consumerService.modifyConsumerByName(consumer)) {
+            printResult.printSuccessMessage("update");
+        } else {
+            printResult.printErrorMessage("update");
+        }
+    }
+    public void modifyConsumerByRank(Map<String, String> parameter) {
+        String consumerId = parameter.get("consumerId");
+        String consumerRank = parameter.get("consumerRank");
+
+        ConsumerDTO consumer = new ConsumerDTO();
+        consumer.setConsumerId(consumerId);
+        consumer.setConsumerRank(consumerRank);
+
+        if (consumerService.modifyConsumerByRank(consumer)) {
+            printResult.printSuccessMessage("update");
+        } else {
+            printResult.printErrorMessage("update");
+        }
+    }
+    public void modifyConsumerByPhone(Map<String, String> parameter) {
+        String consumerId = parameter.get("consumerId");
+        String consumerPhone = parameter.get("consumerPhone");
+
+        ConsumerDTO consumer = new ConsumerDTO();
+        consumer.setConsumerId(consumerId);
+        consumer.setConsumerPhone(consumerPhone);
+
+        if (consumerService.modifyConsumerByPhone(consumer)) {
             printResult.printSuccessMessage("update");
         } else {
             printResult.printErrorMessage("update");
